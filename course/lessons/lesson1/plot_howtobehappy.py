@@ -240,7 +240,6 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 #
 #  \frac{d}{dm} \left( ( y_1 - m \cdot x_1)^2 +  ( y_2 - m \cdot x_2)^2  + ... + ( y_{136} - m \cdot x_{136})^2  \right)
 #
-#
 #  = - 2 x_1 y_1 + 2 x_1^2 m  - 2 x_2 y_2 + 2 x_2^2 m  +  ... - 2 x_{136} y_{136} + 2 x_{136}^2 m  
 #
 # Again, although this particular step involves alot of algebra, notice that we are doing exactly the same as in the example above.
@@ -264,8 +263,7 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 #
 # .. math::
 #
-# m = \frac{\sum_i^n x_i y_i}{\sum_i^n x_i^2}
-# 
+#  m = \frac{\sum_i^n x_i y_i}{\sum_i^n x_i^2}
 # 
 # Lets now use our newly found equation to calculate the line that best fits the data.
 
@@ -372,24 +370,30 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 # This new line through the data is better! It has a smaller sum of squares. 
 # 
 # The mean values are calculated as follows
+#
 # .. math::
 #
-# \bar{x} = \frac{1}{n} \sum_i^n x_i \mbox{ and }  \bar{y} = \frac{1}{n} \sum_i^n y_i 
+#  \bar{x} = \frac{1}{n} \sum_i^n x_i \mbox{ and }  \bar{y} = \frac{1}{n} \sum_i^n y_i 
 #
 # 
 # Using this notation, the equation for the line through the data is
+#
 # .. math::
 #
-# \hat{y_i} - \bar{y} = m  (\hat{x_i} - \bar{x})
+#  \hat{y_i} - \bar{y} = m  (\hat{x_i} - \bar{x})
 #
 # Just to remind you about the notation. The predicted value has a hat over it, while the mean values
 # have a bar over them. We can rearrange this equation to get 
 #
-# \hat{y_i}  = m \hat{x_i} + (\bar{y} - m\bar{x})
+# .. math::
+#
+#  \hat{y_i}  = m \hat{x_i} + (\bar{y} - m\bar{x})
 #
 # Notice that this is an equation for a straight line, so we can write
 #
-# \hat{y_i}  = m \hat{x_i} + k  \mbox{ where } k = \bar{y} - m\bar{x}
+# .. math::
+#
+#  \hat{y_i}  = m \hat{x_i} + k  \mbox{ where } k = \bar{y} - m\bar{x}
 #
 # Let's apply this to data and plot the line again
 
@@ -408,18 +412,20 @@ for country in ['United States','United Kingdom','Croatia','Benin','Finland','Ye
 plt.show()
 
 print('The slope of the line is m = %.4f and the intercept is k = %.4f' % (m_best,k_best))
+print('An increase in life expectancy of %.4f years is associated with one extra point of happiness' % (1/m_best))
+
     
 df=df.assign(SquaredDistance=np.power((df['Predicted'] - df['Happiness']),2))          
 Model_Sum_Of_Squares = np.sum(df['SquaredDistance'])             
 print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
+
 
 ##############################################################################
 # Now we have it. By shifting the line back to the original co-ordinates we
 # can find the best fitting line through the data. Notice that the sum of squares is unaffected by
 # shifting the line back again, since the distances from the points to the line are unaffected. 
 #
-# Notice that the slope 
-# It is roughly OK to say that for every 8 years of life expectancy
+# We can say (roughly speaking) that for every 8 ( years of life expectancy
 # country citizens are about 1 point happier on a scale of 0 to 10. It isn't 
 # the whole truth, but it isn't entirely misleading either. 
 
