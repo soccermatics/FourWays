@@ -415,7 +415,15 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 
 ##############################################################################
 # Now we have it. By shifting the line back to the original co-ordinates we
-# can find the best fitting line through the data. 
+# can find the best fitting line through the data. Notice that the sum of squares is unaffected by
+# shifting the line back again, since the distances from the points to the line are unaffected. 
+#
+# Notice that the slope 
+# It is roughly OK to say that for every 8 years of life expectancy
+# country citizens are about 1 point happier on a scale of 0 to 10. It isn't 
+# the whole truth, but it isn't entirely misleading either. 
+
+
 
 
 
@@ -426,9 +434,7 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 
 
 ##############################################################################
-# It is however (roughly) OK to say that for every 8 years of life expectancy
-# country citizens are about 1 point happier on a scale of 0 to 10. It isn't 
-# the whole truth, but it isn't entirely misleading either. 
+
 #
 
 
