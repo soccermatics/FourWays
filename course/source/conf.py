@@ -10,9 +10,9 @@ from sphinx_gallery.sorting import ExampleTitleSortKey
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Course Template'
-copyright = '2022, Andrew Rowlinson'
-author = 'Andrew Rowlinson'
+project = 'Four Ways'
+copyright = '2022, David Sumpter'
+author = 'David Sumpter'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

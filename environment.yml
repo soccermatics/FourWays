@@ -14,10 +14,16 @@ dependencies:
   - sphinx
   - sphinx-gallery
   - sphinx_rtd_theme
+  - matplotlib
+  - numpy
+  - scikit-learn
+  - linkify-it-py
   - pip
+  - xgboost
   - pip:
       - adjustText
       - highlight-text
       - kloppy
       - mplsoccer
       - sphinxcontrib-youtube
+      - myst-parser

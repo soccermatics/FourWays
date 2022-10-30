@@ -2,36 +2,37 @@
    :width: 157
    :align: center
 
-**Welcome to the course.**
+**Welcome to Four Ways of Thinking**
 
 
 ..  youtube:: MIGQFcVO7-s
    :width: 368
    :height: 207
 
------------
-Source code
------------
-The source code is available `here <https://github.com/andrewRowlinson/course-template>`_
+--------
+A Header
+--------
+
+Something here
 
 Contents
 ========
 
 .. toctree::
    :maxdepth: 1
-   :caption: Course intro:
+   :caption: Welcome:
 
    course_overview
 
 .. toctree::
    :maxdepth: 1
-   :caption: Lesson 1:
+   :caption: Class I:
 
-   gallery/lesson1/plot_xt
+   gallery/lesson1/plot_howtobehappy
 
 .. toctree::
    :maxdepth: 1
-   :caption: Lesson 2:
+   :caption: Class II:
 
-   gallery/lesson2/plot_pitches
-   gallery/lesson2/plot_radar
+   gallery/lesson2/plot_rabbitsandfoxes
+   gallery/lesson2/plot_socialreaction

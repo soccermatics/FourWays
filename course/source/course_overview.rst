@@ -2,7 +2,7 @@
    :width: 157
    :align: center
 
------------
-Source code
------------
-The source code is available `here <https://github.com/andrewRowlinson/course-template>`_
+---------
+Something
+---------
+An example link is `here <https://github.com/andrewRowlinson/course-template>`_

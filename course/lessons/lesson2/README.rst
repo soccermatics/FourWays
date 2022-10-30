@@ -1,5 +1,5 @@
 --------
-Lesson 2
+Class II
 --------
 
-Learning more about visualisations using mplsoccer and Matplotlib.
+From the book

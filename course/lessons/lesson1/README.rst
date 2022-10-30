@@ -1,5 +1,5 @@
 --------
-Lesson 1
+Class I
 --------
 
-Learn about Expected Threat.
+First part of the book.
