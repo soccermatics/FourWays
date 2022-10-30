@@ -52,13 +52,13 @@ rcParams['figure.figsize'] = 14/2.54, 14/2.54
 matplotlib.font_manager.FontProperties(family='Helvetica',size=11)
 
 
-def plotData(df): 
+def plotData(df,x,y): 
     fig,ax=plt.subplots(num=1)
-    ax.plot('LifeExp','Happiness', data=df, linestyle='none', markersize=5, marker='o', color=[0.85, 0.85, 0.85])
+    ax.plot(x,y, data=df, linestyle='none', markersize=5, marker='o', color=[0.85, 0.85, 0.85])
     for country in ['United States','United Kingdom','Croatia','Benin','Finland','Yemen']:
         ci=np.where(df['Country name']==country)[0][0]
-        ax.plot(  df.iloc[ci]['LifeExp'],df.iloc[ci]['Happiness'], linestyle='none', markersize=7, marker='o', color='black')
-        ax.text(  df.iloc[ci]['LifeExp']+0.5,df.iloc[ci]['Happiness']+0.08,  country)
+        ax.plot(  df.iloc[ci][x],df.iloc[ci][y], linestyle='none', markersize=7, marker='o', color='black')
+        ax.text(  df.iloc[ci][x]+0.5,df.iloc[ci][y]+0.08,  country)
            
     ax.set_xticks(np.arange(30,90,step=5))
     ax.set_yticks(np.arange(11,step=1))
@@ -70,7 +70,7 @@ def plotData(df):
     ax.set_ylim(2.5,8.1) 
     return fig,ax
 
-fig,ax=plotData(df)
+fig,ax=plotData(df,'LifeExp','Happiness')
 
 plt.show()
 
@@ -98,19 +98,18 @@ plt.show()
 # We can draw this equation in the form of a straight line going 
 # through the cloud of country points, as shown below.
 
-fig,ax=plotData(df)
+fig,ax=plotData(df,'LifeExp','Happiness')
 
 # Setup parameters 
 # a is the lines intercept
 # b is the slope of the line
 # and calculate a line
-a=0
-b=1/12
+m=1/12
 Life_Expectancy=np.arange(0.5,100,step=0.01)
-Happiness=a + b*Life_Expectancy
+Happiness= m*Life_Expectancy
 
 ax.plot(Life_Expectancy, Happiness, linestyle='-', color='black')
-df=df.assign(Predicted=np.array(a+df['LifeExp'])*b)
+df=df.assign(Predicted=np.array(m*df['LifeExp']))
 for country in ['United States','United Kingdom','Croatia','Benin','Finland','Yemen']:
     ci=np.where(df['Country name']==country)[0][0]
     ax.plot(  [df.iloc[ci]['LifeExp'],df.iloc[ci]['LifeExp']] ,[ df.iloc[ci]['Happiness'],df.iloc[ci]['Predicted']] ,linestyle=':', color='black')
@@ -145,6 +144,8 @@ df=df.assign(SquaredDistance=np.power((df['Predicted'] - df['Happiness']),2))
 display(df[['Country name','Happiness','Predicted','SquaredDistance']])
              
 Model_Sum_Of_Squares = np.sum(df['SquaredDistance'])
+
+print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 
 ##############################################################################
 # The question is whether this line is the ‘best’ line? You can test to see if you get a line
@@ -275,14 +276,14 @@ m_best = np.sum(df['HappinessLifEExp'])/np.sum(df['SquaredLifEExp'])
 print('The best fitting line has slope m = %.4f' % m_best)
 
 ##############################################################################
-# Our intial guess of m = 1/12 = 0.0833 wasn't so far away from the best fitting value. 
-# We can now plot this and recalculate the model sum of squares
+# Our intial guess of :math:`m = 1/12 = 0.0833` wasn't so far away from the best fitting value. 
+# But this new slope is slightly closer to the data. We can now plot this and recalculate the model sum of squares
 # 
 
 Life_Expectancy=np.arange(0.5,100,step=0.01)
 Happiness= m_best*Life_Expectancy
 
-fig,ax=plotData(df)
+fig,ax=plotData(df,'LifeExp','Happiness')
 ax.plot(Life_Expectancy, Happiness, linestyle='-', color='black')
 df=df.assign(Predicted=np.array(m_best*df['LifeExp']))
 for country in ['United States','United Kingdom','Croatia','Benin','Finland','Yemen']:
@@ -295,6 +296,141 @@ df=df.assign(SquaredDistance=np.power((df['Predicted'] - df['Happiness']),2))
              
 Model_Sum_Of_Squares = np.sum(df['SquaredDistance'])             
 print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
+
+##############################################################################
+# Again, this sum of squares is slightly smaller than the value we got above 
+# for :math:`m = 1/12` 
+#
+
+
+##############################################################################
+# Including the Intercept
+# -----------------------
+#
+# Let's start by shifting the data so that it has a mean (average) of zero.
+# To do this we simply take away the mean value from both life expectancy and 
+# from happiness. Then replot the data 
+
+df=df.assign(ShiftedLifeExp=df['LifeExp'] - np.mean(df['LifeExp']))
+df=df.assign(ShiftedHappiness=df['Happiness'] - np.mean(df['Happiness']))
+
+fig,ax=plotData(df,'ShiftedLifeExp','ShiftedHappiness')
+ax.set_ylabel('Happiness (corrected for Mean Happiness)')
+ax.set_xlabel('Life Expectancy (corrected for Mean Life Expectancy) ')
+ax.set_xticks(np.arange(-30,30,step=5))
+ax.set_yticks(np.arange(-5,5,step=1))
+ax.set_xlim(-20,15)
+ax.set_ylim(-3,3) 
+plt.show()
+
+##############################################################################
+# This graph shows us that, for example, Yemen is almost -2.5 points below the world 
+# average for happiness and has a life expectency 8 years shorter than the average over
+# all countries in the world. The United States life expectancy is around 3.5 years longer than 
+# the average and the citizens of the USA are about 1.3 points happier than average.
+# It is worth noting that the correction is for country averages and does not account for the size of the 
+# populations of these various countries. It does though give us a new way 
+# of seeing between country differences.
+# 
+#
+# Let's now try to find the best fit line which goes through these data points.
+
+df=df.assign(SquaredLifEExp=np.power(df['ShiftedLifeExp'],2))
+df=df.assign(HappinessLifEExp=df['ShiftedLifeExp'] * df['ShiftedHappiness'])
+
+m_best = np.sum(df['HappinessLifEExp'])/np.sum(df['SquaredLifEExp'])
+print('The best fitting line has slope m = %.4f' % m_best)
+
+Life_Expectancy=np.arange(-50,50,step=0.01)
+Happiness= m_best*Life_Expectancy
+
+fig,ax=plotData(df,'ShiftedLifeExp','ShiftedHappiness')
+ax.plot(Life_Expectancy, Happiness, linestyle='-', color='black')
+ax.set_ylabel('Happiness (corrected for Mean Happiness)')
+ax.set_xlabel('Life Expectancy (corrected for Mean Life Expectancy) ')
+ax.set_xticks(np.arange(-30,30,step=5))
+ax.set_yticks(np.arange(-5,5,step=1))
+ax.set_xlim(-20,15)
+ax.set_ylim(-3,3) 
+
+plt.show()
+
+
+##############################################################################
+# This line appears to fit better than the one we fitted earlier! It seems 
+# to lie closer to the points and better capture the relationship in the data.
+# To test whether this is indeed the case we can calculate the sum of squares
+# between this new line and the shifted data. This is as follows
+
+df=df.assign(Predicted=np.array(m_best*df['ShiftedLifeExp']))       
+df=df.assign(SquaredDistance=np.power((df['Predicted'] - df['ShiftedHappiness']),2))
+            
+Model_Sum_Of_Squares = np.sum(df['SquaredDistance'])             
+print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
+
+##############################################################################
+# This new line through the data is better! It has a smaller sum of squares. 
+# 
+# The mean values are calculated as follows
+# .. math::
+#
+# \bar{x} = \frac{1}{n} \sum_i^n x_i \mbox{ and }  \bar{y} = \frac{1}{n} \sum_i^n y_i 
+#
+# 
+# Using this notation, the equation for the line through the data is
+# .. math::
+#
+# \hat{y_i} - \bar{y} = m  (\hat{x_i} - \bar{x})
+#
+# Just to remind you about the notation. The predicted value has a hat over it, while the mean values
+# have a bar over them. We can rearrange this equation to get 
+#
+# \hat{y_i}  = m \hat{x_i} + (\bar{y} - m\bar{x})
+#
+# Notice that this is an equation for a straight line, so we can write
+#
+# \hat{y_i}  = m \hat{x_i} + k  \mbox{ where } k = \bar{y} - m\bar{x}
+#
+# Let's apply this to data and plot the line again
+
+k_best = np.mean(df['Happiness']) - m_best*np.mean(df['LifeExp'])
+
+Life_Expectancy=np.arange(0.5,100,step=0.01)
+Happiness= m_best*Life_Expectancy + k_best
+
+fig,ax=plotData(df,'LifeExp','Happiness')
+ax.plot(Life_Expectancy, Happiness, linestyle='-', color='black')
+df=df.assign(Predicted=np.array(m_best*df['LifeExp']+k_best))
+for country in ['United States','United Kingdom','Croatia','Benin','Finland','Yemen']:
+    ci=np.where(df['Country name']==country)[0][0]
+    ax.plot(  [df.iloc[ci]['LifeExp'],df.iloc[ci]['LifeExp']] ,[ df.iloc[ci]['Happiness'],df.iloc[ci]['Predicted']] ,linestyle=':', color='black')
+ 
+plt.show()
+
+print('The slope of the line is m = %.4f and the intercept is k = %.4f' % (m_best,k_best))
+    
+df=df.assign(SquaredDistance=np.power((df['Predicted'] - df['Happiness']),2))          
+Model_Sum_Of_Squares = np.sum(df['SquaredDistance'])             
+print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
+
+##############################################################################
+# Now we have it. By shifting the line back to the original co-ordinates we
+# can find the best fitting line through the data. 
+
+
+
+
+##############################################################################
+# In machine learning, the intercept  
+
+
+
+##############################################################################
+# It is however (roughly) OK to say that for every 8 years of life expectancy
+# country citizens are about 1 point happier on a scale of 0 to 10. It isn't 
+# the whole truth, but it isn't entirely misleading either. 
+#
+
 
 ##############################################################################
 # I think that many of us who have studied calculs in school tend to think
