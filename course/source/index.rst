@@ -2,18 +2,14 @@
    :width: 157
    :align: center
 
-**Welcome to Four Ways of Thinking**
+**Four Ways of Thinking**
 
+-------
+Welcome
+-------
 
-..  youtube:: MIGQFcVO7-s
-   :width: 368
-   :height: 207
-
---------
-A Header
---------
-
-Something here
+This is the companion website to David Sumpter's book,
+`Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_
 
 Contents
 ========
