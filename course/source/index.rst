@@ -8,8 +8,8 @@
 Welcome
 -------
 
-This is the companion website to David Sumpter's book,
-`Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_
+This is the companion website to David Sumpter's book 
+`Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_.
 
 Contents
 ========
@@ -25,6 +25,7 @@ Contents
    :caption: Class I:
 
    gallery/lesson1/plot_howtobehappy
+   gallery/lesson1/plot_happyperson
 
 .. toctree::
    :maxdepth: 1

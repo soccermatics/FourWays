@@ -20,6 +20,7 @@ dependencies:
   - linkify-it-py
   - pip
   - xgboost
+  - pyreadstat
   - pip:
       - adjustText
       - highlight-text
