@@ -1,4 +1,4 @@
-.. image:: logo-blue.png
+.. image:: images/logo.png
    :width: 157
    :align: center
 
@@ -16,14 +16,9 @@ Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Welcome:
-
-   course_overview
-
-.. toctree::
-   :maxdepth: 1
    :caption: Class I:
 
+   lesson1/averagefriends.md
    gallery/lesson1/plot_howtobehappy
    gallery/lesson1/plot_happyperson
 
@@ -33,3 +28,11 @@ Contents
 
    gallery/lesson2/plot_rabbitsandfoxes
    gallery/lesson2/plot_socialreaction
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Solutions:
+
+   solutionsI.rst

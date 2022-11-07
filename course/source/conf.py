@@ -20,6 +20,7 @@ author = 'David Sumpter'
 extensions = ['sphinx.ext.mathjax',
               'sphinx_gallery.gen_gallery',
               'sphinxcontrib.youtube',
+              'myst_parser'
               ]
 
 templates_path = ['_templates']
@@ -36,6 +37,12 @@ sphinx_gallery_conf = {
                                        '../lessons/lesson2',
                                        ])}
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+    }
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -43,6 +50,26 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # add logo
-html_logo = "logo.png"
+html_logo = "images/logo.png"
 html_theme_options = {'logo_only': True,
                       'display_version': False}
+
+
+# Options for Markdown  -------------------------------------------------
+# https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
+
+myst_enable_extensions = [
+    "amsmath",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "replacements",
+    "linkify",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist"
+]
