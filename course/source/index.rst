@@ -19,6 +19,7 @@ Contents
    :caption: Class I:
 
    lesson1/averagefriends.md
+   lesson1/alikelyanswer.md
    gallery/lesson1/plot_howtobehappy
    gallery/lesson1/plot_happyperson
 
