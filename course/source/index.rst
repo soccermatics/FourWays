@@ -28,7 +28,25 @@ Contents
    :caption: Class II:
 
    gallery/lesson2/plot_rabbitsandfoxes
-   gallery/lesson2/plot_socialreaction
+   gallery/lesson2/plot_socialepidemic
+   gallery/lesson2/plot_morethanthesum
+   gallery/lesson2/plot_cellularautomata
+   gallery/lesson2/plot_theartofagoodargument
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Class III:
+
+   gallery/lesson3/plot_thebutterflyeffect
+   gallery/lesson3/plot_cellularchaos
+   gallery/lesson3/plot_informationequalsrandomness
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Class IV:
+
+   gallery/lesson4/plot_I_II_III_IV
+
 
 
 
