@@ -1,9 +1,10 @@
 """
-Happy World
+Happy world
 ===========
 
 **What we will learn:** Plotting data and looking for relationships.
-Fitting straight lines to data. Treating the slope and intercept of the lines as parameters.
+Fitting straight lines to data. Understanding the slope and intercept of the line as parameters. 
+Showing that the parameters are the best possible fit to the data.
 
 **Pre-requisits:** [Scatter diagrams](https://www.bbc.co.uk/bitesize/guides/znjv4wx/revision/1)
 [Equation for a straight line](https://www.bbc.co.uk/bitesize/guides/zt8sgk7/revision/1)
@@ -448,6 +449,8 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 # Machine learning
 # ----------------
 # 
+# Doctor video.
+#
 # In machine learning, the intercept  
 
 
@@ -455,12 +458,8 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 # Maximum likelihood
 # ------------------
 # 
-# There are many 
-
-
-
-
-
-
-
+# In section . We have found that the values of parameters :math:`k` and :math:`m` that
+# minimise the square distance to the line, but are these the maximum likelihood estimates?
+#
+# The asnwer is 'yes and no'.  
 

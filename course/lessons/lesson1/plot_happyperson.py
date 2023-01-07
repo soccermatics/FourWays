@@ -1,5 +1,5 @@
 """
-Happy Individual
+Happy individual
 ================
 
 **Imagine, after you have paid your bills, you have more than $200 per month to spend divided between three 
