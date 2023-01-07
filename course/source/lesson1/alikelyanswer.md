@@ -3,9 +3,9 @@ A likely answer
 
 **What we will learn:** Understanding probabilities and likelihoods. Why we measure proportions the way we do. Logarithms and log-likelihoods. Find the maximum (log-)likelihood estimate and prove it is indeed maximum.
 
-**Pre-requisits:** [Basic probability](https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics#cc-7th-basic-prob) [Logarithms](https://www.bbc.co.uk/bitesize/guides/zn3ty9q/revision/1)
+**Pre-requisits:** [Basic probability](https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics#cc-7th-basic-prob); We will recap on [Logarithms](https://www.bbc.co.uk/bitesize/guides/zn3ty9q/revision/1); In the final section we look at [derivatives of logarithms](https://www.khanacademy.org/math/in-in-grade-12-ncert/xd340c21e718214c5:continuity-differentiability/xd340c21e718214c5:logarithmic-functions-differentiation/v/logarithmic-functions-differentiation-intro.
 
-Before starting, it is worth pausing to emphaise what I am trying to do here. Maximum likelihood estimation is usually taught in university maths and statsitics courses, often in the second or third years. It is thus an advanced topic, and (in my experience) very few students fully understand it. In this page, I show step-by-step what maximum likelihood is, using high school mathematics. This serves two purposes. Firstly, it shows that a concept in advanced mathematics can be understood using a reasonably basic understanding of probability. Secondly, it should help students studying more advanced mathematics gain intuition into what is going on when we calculate log-likelihoods. 
+Before starting, it is worth pausing to emphaise what I am trying to do here. Maximum likelihood estimation is usually taught in university maths and statsitics courses, often in the second or third years. It is thus an advanced topic. In this page, I show step-by-step what maximum likelihood is, using high school mathematics. This serves three purposes. Firstly, it shows that a concept in advanced mathematics can be understood using a reasonably basic understanding of probability. Secondly, it should help students studying more advanced mathematics gain intuition into what is going on when we calculate log-likelihoods. Finally, it should give a feeling for some of the thought process behind Fisher' original paper: [On an Absolute Criterion for Fitting Frequency Curves](https://www.jstor.org/stable/pdf/2246266.pdf?refreqid=excelsior%3Ace877822879bb8e9c1500ec9d6c0d244&ab_segments=&origin=&acceptTC=1).
 
 ### The data
 
@@ -74,79 +74,87 @@ $$
 
 We have a winner! Our value of 40% has the largest likelihood out of those we tested. 
 
-
-### Likelihoods and Logarithms
+### Likelihood function
 
 In the above example we compare tried out different proportions and calculated their likelihood. Let's now the same exercise, but use the letter $p$ to denate the probability that a person likes
-gerkhins, and the letter $L$ to denate the likelihood of the answers. For these particular answers,
+gerkhins, and the letter $l$ to denate the likelihood of the answers. For these particular answers,
+
 $$
-L = p \cdot (1-p) \cdot p \cdot (1-p) \cdot p \cdot (1-p) \cdot (1-p) \cdot p \cdot (1-p) \cdot (1-p)
+l = p \cdot (1-p) \cdot p \cdot (1-p) \cdot p \cdot (1-p) \cdot (1-p) \cdot p \cdot (1-p) \cdot (1-p)
 $$ 
+
 where $(1-p)$ is the probability that a person doesn't like gherkins. 
 
-We can rewrite this equation using exponents, which are used to denote multiplying numbers together. For example, if we multiply three twos together ($2\cdot 2\cdot 2=8), a short hand is to write 2^3. So, $2^3=2\cdot 2\cdot 2=8$ and I say ‘$2$ to the power of $3$ is $8$’. The number $3$ is known as the *exponent*. Similarly, $2^6=2\cdot 2\cdot 2\cdot 2\cdot 2\cdot 2=64$. Now $6$ is the exponent. 
-Multiplying numbers by themselves makes them very large, very quickly. For example, $2^20=1,048,576 and 2^100=1,267,650,600,228,229,401,496,703,205,376$. The number of atoms in the Universe is (very) roughly equal to $2^266$.
+We can rewrite this equation using exponents, which are used to denote multiplying numbers together. For example, if we multiply three twos together ($2\cdot 2\cdot 2=8$), a short hand is to write $2^3$. So, $2^3=2\cdot 2\cdot 2=8$ and we say ‘$2$ to the power of $3$ is $8$’. The number $3$ is known as the *exponent*. Similarly, $2^6=2\cdot 2\cdot 2\cdot 2\cdot 2\cdot 2=64$. Now $6$ is the exponent. Multiplying numbers by themselves makes them very large, very quickly. For example, $2^20=1,048,576$ and $2^100=1,267,650,600,228,229,401,496,703,205,376$. The number of atoms in the Universe is (very) roughly equal to $2^266$.
 
-
+Since it doesn't matter which order we muliply, we can now write,
 
 $$
-L= p^4 \cdot (1-p)^6
+l= p^4 \cdot (1-p)^6
 $$
+
 The probability of the particular set of preferences expressed by these 10 people. When p=0.4 then this becomes 
-L= (4/10)^4 \cdot (1-4/10)^6=(4^4 〖\cdot 6〗^6)/10^10 =11664/9765625≈0.00119
+l = (4/10)^4 \cdot (1-4/10)^6=(4^4 〖\cdot 6〗^6)/10^10 =11664/9765625≈0.00119
 as we also saw above. 
+
+One way of showing that this is the best value is to plot the likelihood for every possible value of $p$. This is done in the figure below:
+
+![](../images/lesson1/likelihood.png)
+
+This has a maximum at $0.4$. 
+
+### Logarithms and log-likelihood function
 
 When dealing with independent events, such as dice throws or coin tosses or people liking gherkins, we multiply the probabilities of each event in order to find the probability of them occurring. Just like repeatedly multiplying by a number greater than 1 (such 2) makes them large very quickly, multiplying probabilities makes them small very quickly. For example, the probability of getting 10 sixes in a row is $(1/6)^{10}$, which is less than one in in 60 million. The fact that multiplying makes numbers small (or large) very fast is one of the reasons for using logarithms, which I will now introduce.
 
-Logarithms are the opposite of powers. If I ask ‘what is $\log_2(8)$?’ then I am asking how many times I need to multiply $1$ by $2$ in order to get 8. The answer is that $\log_2(8)$=3, since as we just saw, I need to multiply three times to get 8 (i.e. $2^3=2\cdot 2\cdot 2=8$). Similarly, $\log_2(64)=6$, since $2$ multiplied $6$ times is $64$.  The logarithm of $8$ and $64$ can be thus thought of as undoing the power of $2$ to give us $3$ and $6$, respectively. 
+Logarithms are the opposite of powers. If we ask ‘what is $\log_2(8)$?’ then we are asking how many times I need to multiply $1$ by $2$ in order to get 8. The answer is that $\log_2(8)$=3, since as we just saw, I need to multiply three times to get 8 (i.e. $2^3=2\cdot 2\cdot 2=8$). Similarly, $\log_2(64)=6$, since $2$ multiplied $6$ times is $64$.  The logarithm of $8$ and $64$ can be thus thought of as undoing the power of $2$ to give us $3$ and $6$, respectively. 
 
 The value $2$ written in the subscript in $\log_2$ is know as the base of the logarithm. We can have other bases. So for example, if I ask ‘what is $\log_10(10000)$?’ then I am asking how many times I need to multiply $1$ by $10$ in order to get $10,000$. The answer is \log_10(10000)=4.
 
-Logarithms turn multiplication in to addition. Notice that, for powers, $2^3 \cdot 2^3=2^6$, we add the exponents when we multiply. This means that, for example, 
+Logarithms turn multiplication in to addition. For powers, $2^3 \cdot 2^3= 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^6$. We add the exponents when we multiply. For logarithms, 
 
 $$
-\log_2(64)= \log_2(8 \cdot 8) =\log_2(8)+\log_2(8)=2∙\log_2(8)=6
+\log_2(64) = \log_2(2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2) = \log_2(2^6) = 6 \cdot \log_2(2)=6
 $$
 
-Notice also that, because the logarithm has the opposite effect to taking a power,
+It is these properties we now use for likelihoods, using the letter $p$ instead of numbers. For example,
 
 $$
-\log_2(p^4)= \log_2(p \cdot p \cdot p \cdot p)= \log_2(8 \cdot 8) =\log_2(8)+\log_2(8)=2∙\log_2(8)=6
+\log_2(p^4) = 4 \log_2(p)
 $$
 
-
-
-It is this property we now use for likelihoods, using the letter $p$ instead of numbers. So when we have,
+So when we have,
 
 $$
-L= p^4 \cdot (1-p)^6
+l= p^4 \cdot (1-p)^6
 $$
 
 we can take the logarithm to get 
 
 $$
-\log_2\left(p^4∙(1-p)^6\right) = \log_2\left(p^4\right) + \log_2\left((1-p)^6\right) 
+L = \log_2 \left(p^4∙(1-p)^6\right) = \log_2\left(p^4\right) + \log_2\left((1-p)^6\right) = 4 \log_2(p) + 6\log_2\left((1-p)\right) 
 $$
+This is known as the *log-likelihood*. We can calulate the log-likelihood for each value of $p$ and plot $l$ as a function of $p$, as follows:
 
-Then we can take the exponenets out of the logarithm to get
+![](../images/lesson1/loglikelihood.png)
 
-
-
-Notice 
-
-This is known  as the *log-likelihood*. It was the log-likelihood which Fisher then used 
-
-
-
+Notice that it also has its maximum value at $p=0.4$, the value we said was the maximum likelihood estimate of the proportion of people who like gerkhins. If we find the value of $p$ which maximises the log-likelihood, we also find the value that maximises the likelihood. 
 
 
 ### The Maximum Likelihood
 
-Let's 
+Let's now prove that $p=0.4$ is the maximum likelihood. Up to now we have plotted the likelihood and log-likelihood, but we haven't demonstrated algebraically that the maximum must be $p=0.4$. To do this we use differentiation. 
 
 
 
 
 
 
-You can see how to apply the rule for derivatives of logarithms in this [video](https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-2-new/ab-3-1b/v/logarithmic-functions-differentiation-intro). I have tried through this presentation to explain the reason for each rule we use. but I am skipping doing this here, because it drifts slightly too far off topic. If you are interested, a good starting point can be found [here](https://www.cuemath.com/calculus/derivative-of-log-x/).
+
+
+You can see how to apply the rule for derivatives of logarithms in this [video](https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-2-new/ab-3-1b/v/logarithmic-functions-differentiation-intro). I have tried through this presentation to explain the reason for each rule we use. but I am skipping doing this here, because it drifts slightly too far off topic. If you are interested in learning more, a good starting point can be found [here](https://www.cuemath.com/calculus/derivative-of-log-x/).
+
+
+
+### Fisher's original paper
+

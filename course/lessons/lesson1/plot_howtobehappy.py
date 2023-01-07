@@ -2,6 +2,16 @@
 Happy World
 ===========
 
+**What we will learn:** Plotting data and looking for relationships.
+Fitting straight lines to data. Treating the slope and intercept of the lines as parameters.
+
+**Pre-requisits:** [Scatter diagrams](https://www.bbc.co.uk/bitesize/guides/znjv4wx/revision/1)
+[Equation for a straight line](https://www.bbc.co.uk/bitesize/guides/zt8sgk7/revision/1)
+[Differentiation](https://www.bbc.co.uk/bitesize/guides/zyj77ty/revision/1)
+
+Plotting the data
+-----------------
+
 Every year since 2005, the World Happiness Report has analysed the results of the Gallup World Poll, 
 which is carried out in 160 countries (covering 99% of the world’s population). 
 The pollsters contact a random sample of people in each country and ask them over 
@@ -81,6 +91,9 @@ plt.show()
 # on the 0 to 10 scale. In general, the higher the life expectancy of a country, 
 # the higher the happiness there. 
 #
+# Drawing a line through the data 
+# -------------------------------
+# 
 # One way to quantify this relationship is to draw a straight line
 # through the points, showing how happiness increases with life expectancy. 
 # For example, imagine that for every 12 extra years which people live in a 
@@ -153,8 +166,8 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 # 
 
 ##############################################################################
-# Finding the best fit to the data
-# ---------------------------------
+# Finding the best fit line 
+# -------------------------
 # Let’s start by formulating this problem mathematically. 
 # For each country :math:`i`, 
 # we have two values: the life satisfaction, which I will call :math:`y_i` 
@@ -174,9 +187,9 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 # The squared distance between the prediction and outcome is written as
 #
 # .. math::
-#    
-# ( y_i - m \cdot x_i)^2 
-#
+# 
+#  ( y_i - m \cdot x_i)^2 
+# 
 # I want to emphasise here that all I am doing is rewriting the same calculation I
 # did above with numbers, but now with the letters. The reason for doing this is that 
 # our aim is to find an equation for the value of :math:`m` which minimises the sum of square 
@@ -431,18 +444,20 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 
 
 
-
-
-
 ##############################################################################
+# Machine learning
+# ----------------
 # 
 # In machine learning, the intercept  
 
 
 ##############################################################################
-# I think that many of us who have studied calculus in school tend to think
-# of it as being very different from statistics. 
+# Maximum likelihood
+# ------------------
 # 
+# There are many 
+
+
 
 
 
