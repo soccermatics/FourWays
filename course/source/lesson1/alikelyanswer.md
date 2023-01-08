@@ -214,5 +214,7 @@ of the probability someone likes gherkins is $p=4/10$.
 
 ### Fisher's original paper
 
-Most people would accept 0.4 as the correct answer to the gherkin problem, even without the detailed
-maths I have done here. But what Fisher was trying to do was introduce a mathematical framework for judging if our way of measuring things was correct in a more general sense. 
+Most people would accept that 0.4 as the correct answer to the gherkin problem, even without the detailed maths I have done here. The point of my presentation, though, is to introduce the way Fisher thought about the problem of estimation using a problem we all understand. In 1912, Fisher was trying to introduce a mathematical framework for evaluating different ways of measuring in more complex situations as well. Now that we have gone through the simpler problem, we can look at the article he wrote over a hundred years ago.
+
+
+
