@@ -1,11 +1,10 @@
 A likely answer
 ---------------
 
-**What we will learn:** Understanding probabilities and likelihoods. Why we measure proportions the way we do. Logarithms and log-likelihoods. Find the maximum (log-)likelihood estimate and prove it is indeed maximum.
+**What we will learn:** Understanding probabilities and likelihoods. Why we measure proportions the way we do. Logarithms and log-likelihoods. Find the maximum (log-)likelihood estimate and prove it is indeed maximum. Understand some of the thought process behind Fisher' original paper [On an Absolute Criterion for Fitting Frequency Curves](https://www.jstor.org/stable/pdf/2246266.pdf?refreqid=excelsior%3Ace877822879bb8e9c1500ec9d6c0d244&ab_segments=&origin=&acceptTC=1).
 
-**Pre-requisits:** [Basic probability](https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics#cc-7th-basic-prob); We will recap on [Logarithms](https://www.bbc.co.uk/bitesize/guides/zn3ty9q/revision/1); In the final section we look at [derivatives of logarithms](https://www.khanacademy.org/math/in-in-grade-12-ncert/xd340c21e718214c5:continuity-differentiability/xd340c21e718214c5:logarithmic-functions-differentiation/v/logarithmic-functions-differentiation-intro.
-
-Before starting, it is worth pausing to emphaise what I am trying to do here. Maximum likelihood estimation is usually taught in university maths and statsitics courses, often in the second or third years. It is thus an advanced topic. In this page, I show step-by-step what maximum likelihood is, using high school mathematics. This serves three purposes. Firstly, it shows that a concept in advanced mathematics can be understood using a reasonably basic understanding of probability. Secondly, it should help students studying more advanced mathematics gain intuition into what is going on when we calculate log-likelihoods. Finally, it should give a feeling for some of the thought process behind Fisher' original paper: [On an Absolute Criterion for Fitting Frequency Curves](https://www.jstor.org/stable/pdf/2246266.pdf?refreqid=excelsior%3Ace877822879bb8e9c1500ec9d6c0d244&ab_segments=&origin=&acceptTC=1).
+**Pre-requisits:** [Basic probability](https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics#cc-7th-basic-prob); We will recap on [Logarithms](https://www.bbc.co.uk/bitesize/guides/zn3ty9q/revision/1); In the final section we use [the product rule for derivatives](https://www.khanacademy.org/math/differential-calculus/dc-diff-intro#dc-product-rule) and
+[derivatives of logarithms](https://www.khanacademy.org/math/in-in-grade-12-ncert/xd340c21e718214c5:continuity-differentiability/xd340c21e718214c5:logarithmic-functions-differentiation/v/logarithmic-functions-differentiation-intro).
 
 ### The data
 
@@ -101,7 +100,7 @@ One way of showing that this is the best value is to plot the likelihood for eve
 
 ![](../images/lesson1/likelihood.png)
 
-This has a maximum at $0.4$. 
+This has a maximum at $0.4$. This is why the estimate $p=0.4$ is the best estimate. If we look at any other value on this plot, it is less likely than 0.4, which is the maximum.
 
 ### Logarithms and log-likelihood function
 
@@ -143,18 +142,77 @@ Notice that it also has its maximum value at $p=0.4$, the value we said was the 
 
 ### The Maximum Likelihood
 
-Let's now prove that $p=0.4$ is the maximum likelihood. Up to now we have plotted the likelihood and log-likelihood, but we haven't demonstrated algebraically that the maximum must be $p=0.4$. To do this we use differentiation. 
+Let's now prove that $p=0.4$ is the maximum likelihood. Up to now we have plotted the likelihood and log-likelihood, but we haven't demonstrated algebraically that the maximum must be $p=0.4$. To do this we use differentiation. The derivative of a function tells its slope at various points. For example, the function
 
+$$
+f(p) = p(1-p) 
+$$
 
+has derivative
 
+$$
+\frac{df}{dp} = 1 - 2p
+$$
 
+We can find the maximum by solving 
 
+$$
+\frac{df}{dp} = 1 - 2p = 0 
+$$
 
+which gives $p=1/2$. One reason we know that $p=1/2$ is a maximum (minimums of functions also have slope zero) is that the derivative $\frac{dl}{dp}$ is positive when $p<1/2$ and negative when $p>1/2$.
 
+We can also take derivatives of functions containing logarithms. For example, for the function
 
-You can see how to apply the rule for derivatives of logarithms in this [video](https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-2-new/ab-3-1b/v/logarithmic-functions-differentiation-intro). I have tried through this presentation to explain the reason for each rule we use. but I am skipping doing this here, because it drifts slightly too far off topic. If you are interested in learning more, a good starting point can be found [here](https://www.cuemath.com/calculus/derivative-of-log-x/).
+$$
+F = \log_2(p) + \log_2(1-p) 
+$$
 
+the derivative is ([derivatives of logarithms are described here](https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-2-new/ab-3-1b/v/logarithmic-functions-differentiation-intro))
 
+$$
+\frac{dF}{dp} = \log_{\mbox{e}}(2) \left( \frac{1}{p} - \frac{1}{1-p} \right)
+$$
+
+Again, this is zero when $p=1/2$, corresponding to the maximum.
+
+We can now differentiate the likelihood function 
+$$
+l(p) = p^4 \cdot (1-p)^6
+$$
+
+Using the product rule for derivatives](https://www.khanacademy.org/math/differential-calculus/dc-diff-intro#dc-product-rule) we get
+
+$$
+\frac{dl}{dp} = -2p^3 (5p-2)(1-p)^5
+$$
+
+Notice that derivatives has three solutions when set equal to zero: $p=0$, $p=1$ and $p=2/5$. We know that the likelihoods at $p=0$ and $p=1$ are zero and thus minimima, so $p=2/5$ (i.e.$p=0.4$) is a maximum. 
+
+We get a similar result for the log-likelihood function
+
+$$
+L = 4 \log_2(p) + 6\log_2\left((1-p)\right) 
+$$
+
+the derivative is
+
+$$
+\frac{dL}{dp} = \log_{\mbox{e}}(2) \left( \frac{4}{p} - \frac{6}{1-p} \right)
+$$
+
+This is zero when
+
+$$
+4(1-p) - 6p = 0 
+$$
+
+which, once again, occurs when $p=4/10$. 
+
+We have thus shown, both using the likelihood and the log-likelihood, that the most likely estimate
+of the probability someone likes gherkins is $p=4/10$. 
 
 ### Fisher's original paper
 
+Most people would accept 0.4 as the correct answer to the gherkin problem, even without the detailed
+maths I have done here. But what Fisher was trying to do was introduce a mathematical framework for judging if our way of measuring things was correct in a more general sense. 
