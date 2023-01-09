@@ -273,7 +273,7 @@ $$
 s^2 = \frac{1}{n-1} \sum^{n}_{i=1} (x_i-m)^2
 $$
 
-is wrong. In fact, statisticians now agree that it was Fisher who was wrong and the $n-1$ method, [which is  unbiased](https://www.probabilitycourse.com/chapter8/8_2_2_point_estimators_for_mean_and_var.php), is most often used today. Fisher quietly [changed his mind too](https://projecteuclid.org/journals/statistical-science/volume-12/issue-3/RA-Fisher-and-the-making-of-maximum-likelihood-1912-1922/10.1214/ss/1030037906.pdf) (although was loathe to explicitly admit it in writing).
+is wrong. Today, most statisticians agree that, despite Fisher's MLE argument, the $n-1$ method, [which is  unbiased](https://www.probabilitycourse.com/chapter8/8_2_2_point_estimators_for_mean_and_var.php), is preferable. Fisher quietly [changed his mind too](https://projecteuclid.org/journals/statistical-science/volume-12/issue-3/RA-Fisher-and-the-making-of-maximum-likelihood-1912-1922/10.1214/ss/1030037906.pdf) about how to measure the variance in parctice (although he was loathe to explicitly admit it in writing).
 
 
 What I do want to leave with you with is what I think is so fantastic about the way Fisher worked as a student in 1912. For me, the paper seems to come from a deep disatisfaction with just being told 'this is how you measure things'. He wanted to know why and, as a result, he found a way of thinking about how lkely a particular set of data was. Instead of just fitting a curve to data by measuring the distance between points and the curve, he asked what is the probability I would get this data, given my assumptions about the curve. 

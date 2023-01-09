@@ -4,7 +4,7 @@ Very average friends
 
 **What we will learn:** How to calculate the mean, the median and proportions; when to use the mean or the median; mathematical notation for sums, means and proportions.
 
-**Pre-requisits:** [KS2 maths](//www.bbc.co.uk/bitesize/topics/zm49q6f)
+**Pre-requisits:** [KS2 maths](https://www.bbc.co.uk/bitesize/topics/zm49q6f)
 
 Throughout *Four Ways of Thinking* we follow the lives of ten friends living in London. We start with some basic statistics about their lives.
 
@@ -23,10 +23,9 @@ $$\frac{34+31+29+29+28+36+35+34+31+30}{10}=31.7$$
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
 <p style='margin-top:1em; text-align:center'>
-<b>Challenge I:1</b></p>
 <p style='margin-left:1em;'>
 
-**Calculate the mean value for yearly income.**
+**Think yourself:** Calculate the mean value for yearly income.
 
 A pretty big hint is that: 
 
@@ -64,10 +63,9 @@ then noting that the middle two incomes are £34,000 and £36,000. Taking the av
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
 <p style='margin-top:1em; text-align:center'>
-<b>Challenge I:2</b></p>
 <p style='margin-left:1em;'>
 
-**What is the median age of the ten friends?**
+**Think yourself:** What is the median age of the ten friends?
 
 Hint: The ages written in order from youngest to oldest as
 28, 29, 29, 30, 31, 31, 34 , 34, 35 36 
@@ -99,10 +97,9 @@ Notice that the proportion is also a mean (an average). We sum the people who li
 <div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
 <span>
 <p style='margin-top:1em; text-align:center'>
-<b>Challenge I:3</b></p>
 <p style='margin-left:1em;'>
 
-**What proportion of the friends drunk soy lattes last week *and* like pickeled gherkins?**
+**Think yourself:** What proportion of the friends drunk soy lattes last week *and* like pickeled gherkins?
 
 </p>
 </p></span>
@@ -113,7 +110,7 @@ Notice that the proportion is also a mean (an average). We sum the people who li
 
 There is no hard and fast rule about when to use the median and when to use the mean (when statisticians say the average, they mean the mean and they don’t mean the median). In the case of the friends’ ages, the mean makes most sense because the variation in ages is quite small. For incomes, the median makes more sense because Nia’s £106,000 per year skews the value of the average upwards. According to Forbes, London is home to 63 billionaires. If we include these super-rich in a mean income calculation, it becomes much larger than the median (often by 25 to 50% for incomes in big cities).
 
-The plot below by the [UK Office for National Statistics](//https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/householddisposableincomeandinequality/financialyearending2019) shows the disposible income for UK citizens 
+The plot below by the [UK Office for National Statistics](https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/householddisposableincomeandinequality/financialyearending2019) shows the disposible income for UK citizens 
 
 
  ![](../images/lesson1/Income.png)
@@ -129,9 +126,7 @@ Whenever we make a measurement, like the mean or the median, we lose information
 
 ### Well done
 
-You have completed the first *Four Ways* lesson.
-
-In the [next lesson](//https://educaora.com/@FourWays/A_likely_answer), we are going to show why the way we calculate the mean and proportions are the best way to do it, because they are maximum likelihood estimates.
+You have completed the first *Four Ways* lesson. In the next lesson, we are going to show why the way we calculate the mean and proportions are the best way to do it.
 
 
 

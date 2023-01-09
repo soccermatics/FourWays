@@ -1,4 +1,6 @@
 """
+.. _chaosbutterfly:
+
 The Butterfly Effect
 ====================
 """
