@@ -1,4 +1,6 @@
 """
+.. _chaosbutterfly:
+
 Cellular Chaos
 ==============
 """

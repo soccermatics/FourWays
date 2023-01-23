@@ -194,9 +194,9 @@ plt.show()
 
 
 def plotPhasePlane(ax,R,F):
-    ax.plot(R, F, '-',color='k', label='Rabbits (R)')
-    ax.set_xlabel('Time: t')
-    ax.set_ylabel('Population')
+    ax.plot(R, F, '-',color='k')
+    ax.set_xlabel('Rabbits: R')
+    ax.set_ylabel('Foxes: F')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.set_xticks(np.arange(0,30,step=5))
@@ -210,6 +210,9 @@ plotPhasePlane(ax,R,F)
 plt.show()
 
 ##############################################################################
+#
+# Finding the equilibrium
+# -----------------------
 # In order to better understand this cycle, in the book, 
 # Parker first looked at 
 # the equilibria where the rate at which rabbits are born equals the rate 
@@ -243,12 +246,14 @@ plt.show()
 # 
 
 fig,ax=plt.subplots(num=1)
+#Plot the rabbit equilibrium
 ax.plot([-100,100],[a/b,a/b],linestyle=':',color='k')
+#Plot the fox equilibrium
 ax.plot([d/c,d/c],[-100,100],linestyle=':',color='k')
 plotPhasePlane(ax,R,F)
 
 ##############################################################################
-# The final thing Parker did was draw arrows to indicate the direction 
+# Parker went on to draw arrows to indicate the direction 
 # of change. We do this below by evaluating :math:`dR/dt` and :math:`dF/dt`
 # for different values and plotting them.
 
@@ -263,15 +268,38 @@ dY = dY/M
 
 fig,ax=plt.subplots(num=1)
 ax.quiver(X, Y, dX, dY, pivot='mid')
+#Plot the rabbit equilibrium
 ax.plot([-100,100],[a/b,a/b],linestyle=':',color='k')
+#Plot the fox equilibrium
 ax.plot([d/c,d/c],[-100,100],linestyle=':',color='k')
 plotPhasePlane(ax,R,F)
 
-
-
-
-
-
-
-
-
+##############################################################################
+# A look at Lotka's orginal article
+# ----------------------------------
+# To find the exact shape of this rotation, we can use a trick that Lotka 
+# described in an article he wrote in 1920. By dividing the rabbit equation by the fox equation he got 
+#
+# .. math::
+# 
+#   \\frac{dR}{dF} = \frac{aR -bRF}{cRF - d F}  
+#
+# We can then rearrange this equation to get 
+# 
+# .. math::
+# 
+#   \left(c -d/R \right) dR = \left(a/F -b \right) dF 
+# 
+# Integrating both sides ofthis equation we get 
+#
+# 
+#   cR -d\log(R) = a \log(F) - b F + C
+# 
+# where C is the constant of integration. This last equation tells us a relationship that 
+# must always hold between rabbits and foxes. To understand what the relationship implies, 
+# imagine  the equation above was simply Y+X=C instead. This would imply the total number of 
+# rabbits and foxes is equal to C. So, if C=10 then we could have Y=3 foxes and X=7 rabbits (because 3+7=10), 
+# or 6 foxes and 4 rabbits (because 6+4=10), but we couldn’t have Y=6 foxes and X=7 rabbits (because 6+7≠10). 
+# In our case, the relationship in the equation is more complicated, involving logarithms, but the idea is the 
+# same: it says that for any particular value of C all values of  X and Y must obey this equation.  
+# Imagine for example, we started with X=4 rabbits and Y=6 foxes. This gives C=

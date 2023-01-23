@@ -77,6 +77,7 @@ Contents
    :caption: Class IV:
 
    gallery/lesson4/plot_I_II_III_IV
+   gallery/lesson4/plot_all_of_the_life
 
 
 

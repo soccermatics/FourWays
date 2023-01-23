@@ -462,4 +462,6 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 # minimise the square distance to the line, but are these the maximum likelihood estimates?
 #
 # The asnwer is 'yes and no'.  
+# See [here](https://www.math.arizona.edu/~jwatkins/n-mle.pdf)
+
 
