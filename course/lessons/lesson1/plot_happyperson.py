@@ -244,6 +244,25 @@ print('For every $100 spent per month on material purchases, %.2f points of happ
 # would make you almost 0.13*5 = 0.65 point (on a scale of 0 to 10) happier. 
 #
 #
+# In the book I write that "[Antony] finds that every $100 spent on time-saving 
+# leads to an average gain of 0.31 points on the happiness scale. So, increasing 
+# spending from $0 per month to around $300 per month on saving time provides almost 
+# one extra point of happiness. "
+# 
+# This claim is based on a regression model that includes a non-linear term to capture the
+# saturation at high levels of spending. I repeat the regression with squared terms as follows.
+# 
+
+for original_name in ['MATA','Bills','TSA','EXPA']:
+    variable_of_interest='spent_on_' + original_name
+    df[variable_of_interest + '_2']=df[variable_of_interest]**2
+
+model_fit=smf.ols(formula=happiness_measure + ' ~  spent_on_MATA + spent_on_TSA + spent_on_EXPA + spent_on_MATA_2 + spent_on_TSA_2 + spent_on_EXPA_2' , data=df).fit()
+print(model_fit.summary()) 
+
+
+#################################################################
+# 
 # Notice that spending time on time saving 
 # This analysis is further supported by the following graph, 
 # which looks at how happiness depends on the proportion of 

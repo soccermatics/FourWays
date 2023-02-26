@@ -445,14 +445,6 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 
 
 
-##############################################################################
-# Machine learning
-# ----------------
-# 
-# Doctor video.
-#
-# In machine learning, the intercept  
-
 
 ##############################################################################
 # Maximum likelihood
