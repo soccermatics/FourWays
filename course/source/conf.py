@@ -51,6 +51,10 @@ source_suffix = {
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+def setup (app):
+    app.add_css_file('css/custom.css')
+
+
 # add logo
 html_logo = "images/logo.png"
 html_theme_options = {'logo_only': True,
