@@ -23,7 +23,6 @@ dependencies:
   - pyreadstat
   - termcolor
   - time
-  - pylab
   - pip:
       - adjustText
       - highlight-text
