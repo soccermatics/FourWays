@@ -130,6 +130,5 @@ dmypy.json
 
 # files for website build
 course/build/
-course/source/_static/
 course/source/_templates/
 course/source/gallery/
