@@ -7,27 +7,25 @@
 This is the companion website to David Sumpter's book 
 `Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_.
 These pages allow you to get deeper in to the mathematics presented 
-in the book. They are a bonus material: a tour of things that were a 
-bit too involved to get in to the book. They contain reference material 
-for those looking to learn more. But they are also standalone adverntures in
-applied mathematics. I have tried to make each section in a way that allows you 
-to spend a time really getting in to a subject.
+in the book. They are both a tour of things that were a 
+bit too involved to get in to the book and can be read as standalone mini-adventures in to mathematics.
+They also contain reference material for those looking to learn more. 
+I have tried to make each section in a way that allows you to spend a time really getting in to a subject.
 
 
-Prerequisists 
-=============
-
-You should be able to follow along without formal mathematical training, but
-some programming experience can help.
-
-Each section gives links to useful background, often using BBC Byte Size and/or Khan Academy, which 
+You should be able to follow along using the maths you learnt in high school, but
+some programming experience can help. Each section gives links to useful background, 
+often using `BBC Byte Size <https://www.bbc.co.uk/bitesize/subjects/zqhs34j>`_ and/or 
+`Khan Academy <https://www.khanacademy.org/math/statistics-probability>`_, which 
 provide good summaries of methods. Although many of the topics --- maximum likelihood, :ref:`chaos<chaosbutterfly>` 
 entropy etc. --- are taught in university maths and statsitics courses, 
 often in the second or third years, my aim is to show step-by-step how they work without 
 advanced mathematical background. I hope this approach can be particularly useful to
-students (upper secondary school or early university... or maybe those thinking about what you would study at
-univesity...), teachers (looking for examples to illustrate why maths is useful) and professionals 
-(interested in a new way of seeing maths and who want to understand a new approach). 
+students (upper secondary school or early university... or maybe those thinking about 
+studying at univesity...), teachers (looking for examples to illustrate why maths is useful) and professionals 
+(interested in a new way of seeing maths and who want to understand a new approach),
+and to people who work with statistics and computing in their jobs and want to get to the bottom
+of the underlying mathematical ideas.
 
 Many of the examples include code in Python. I recommend you download 
 `Anaconda <https://www.anaconda.com/products/distribution>`_ and run the code in either 
