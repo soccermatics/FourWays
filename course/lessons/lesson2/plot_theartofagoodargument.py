@@ -12,7 +12,7 @@ import matplotlib
 
 n=26
 
-#Self other - Gaslighting
+#Self other 
 X11=0
 Y11=0.9
 X01=0
