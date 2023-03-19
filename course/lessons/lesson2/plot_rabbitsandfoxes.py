@@ -5,6 +5,12 @@ Rabbits and foxes
 =================
 
 
+**What we will learn:** How to write differential equation models to show the rate of change of
+populatins of predators and prey. We will simulate the model using Python. Then we draw a phase plane 
+for the model.
+
+**Watch this first:** `Differential equations <https://www.khanacademy.org/math/differential-equations>`_
+
 Differential equations
 ----------------------
 
@@ -129,7 +135,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 from pylab import rcParams
 matplotlib.font_manager.FontProperties(family='Helvetica',size=11)
-rcParams['figure.figsize'] = 9/2.54, 6/2.54
+rcParams['figure.figsize'] = 14/2.54, 10/2.54
 from scipy import integrate
 
 
@@ -140,8 +146,8 @@ from scipy import integrate
 # Differential equation
 def dXdt(X, t=0):
     # Growth rate of fox and rabbit populations.
-    return np.array([ a*X[0]        - b*X[0]*X[1] ,     #Rabbits X[0] is R
-                      c*X[0]*X[1]   - d*X[1]])    #Foxes X[1] is F
+    return np.array([ a*X[0]        - b*X[0]*X[1] ,      #Rabbits X[0] is R
+                      c*X[0]*X[1]   - d*X[1]])           #Foxes X[1] is F
 
 
 ##############################################################################
@@ -224,7 +230,7 @@ plt.show()
 # 
 # .. math::
 # 
-#   \\frac{dR}{dt} = a R - b R F =0 
+#   \frac{dR}{dt} = a R - b R F =0 
 #
 # i.e. the number of rabbits does not change over time. This occurs either when 
 # :math:`R=0` (all the rabbits are dead) or when :math:`F=a/b` (when the number of
@@ -235,7 +241,7 @@ plt.show()
 # 
 # .. math::
 # 
-#   \\frac{dF}{dt} = c R F - d F =0 
+#   \frac{dF}{dt} = c R F - d F =0 
 #
 # i.e. the number of foxes does not change over time. This occurs either when 
 # :math:`F=0` (all the foxes are dead) or when :math:`R=d/c` (when the number of
@@ -282,24 +288,26 @@ plotPhasePlane(ax,R,F)
 #
 # .. math::
 # 
-#   \\frac{dR}{dF} = \frac{aR -bRF}{cRF - d F}  
+#    \frac{dR}{dF} = \frac{aR -bRF}{cRF - d F}  
 #
 # We can then rearrange this equation to get 
 # 
 # .. math::
 # 
-#   \left(c -d/R \right) dR = \left(a/F -b \right) dF 
+#    \left(c -d/R \right) dR = \left(a/F -b \right) dF 
 # 
 # Integrating both sides ofthis equation we get 
 #
+# .. math::
 # 
-#   cR -d\log(R) = a \log(F) - b F + C
+#    cR -d\log(R) = a \log(F) - b F + C
 # 
-# where C is the constant of integration. This last equation tells us a relationship that 
+# where :math:`C`  is the constant of integration. This last equation tells us a relationship that 
 # must always hold between rabbits and foxes. To understand what the relationship implies, 
-# imagine  the equation above was simply Y+X=C instead. This would imply the total number of 
-# rabbits and foxes is equal to C. So, if C=10 then we could have Y=3 foxes and X=7 rabbits (because 3+7=10), 
-# or 6 foxes and 4 rabbits (because 6+4=10), but we couldn’t have Y=6 foxes and X=7 rabbits (because 6+7≠10). 
+# imagine  the equation above was simply :math:`Y+X=C`  instead. This would imply the total number of 
+# rabbits and foxes is equal to C=10. So, if :math:`C=10` then we could have :math:`Y=3` foxes and :math:`X=7` 
+# rabbits (because 3+7=10), 
+# or 6 foxes and 4 rabbits (because 6+4=10), but we couldn’t have :math:`Y=6` foxes and :math:`X=7` rabbits (because 6+7≠10). 
 # In our case, the relationship in the equation is more complicated, involving logarithms, but the idea is the 
 # same: it says that for any particular value of C all values of  X and Y must obey this equation.  
 # Imagine for example, we started with X=4 rabbits and Y=6 foxes. This gives C=
