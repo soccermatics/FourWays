@@ -1,7 +1,7 @@
 """
 .. _chaosbutterfly:
 
-The Butterfly Effect
+The butterfly effect
 ====================
 
 FROM THE BOOK

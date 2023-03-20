@@ -17,7 +17,7 @@ You should be able to follow along using the maths you learnt in high school, bu
 some programming experience can help. Each section gives links to useful background, 
 often using `BBC Byte Size <https://www.bbc.co.uk/bitesize/subjects/zqhs34j>`_ and/or 
 `Khan Academy <https://www.khanacademy.org/math/statistics-probability>`_, which 
-provide good summaries of methods. Although many of the topics --- maximum likelihood, :ref:`chaos<chaosbutterfly>` 
+provide good summaries of methods. Although many of the topics --- :ref:`maximum likelihood<alikelyanswer>`, :ref:`chaos<chaosbutterfly>` 
 entropy etc. --- are taught in university maths and statsitics courses, 
 often in the second or third years, my aim is to show step-by-step how they work without 
 advanced mathematical background. I hope this approach can be particularly useful to
@@ -45,7 +45,7 @@ Contents
    :maxdepth: 1
    :caption: Statistical
 
-   lesson1/averagefriends.md
+   lesson1/averagefriends.rst
    lesson1/alikelyanswer.md
    gallery/lesson1/plot_howtobehappy
    gallery/lesson1/plot_happyperson

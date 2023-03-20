@@ -6,9 +6,9 @@ Happy world
 Fitting straight lines to data. Understanding the slope and intercept of the line as parameters. 
 Showing that the parameters are the best possible fit to the data.
 
-**Pre-requisits:** [Scatter diagrams](https://www.bbc.co.uk/bitesize/guides/znjv4wx/revision/1)
-[Equation for a straight line](https://www.bbc.co.uk/bitesize/guides/zt8sgk7/revision/1)
-[Differentiation](https://www.bbc.co.uk/bitesize/guides/zyj77ty/revision/1)
+**Good to know beforehand:** `Scatter diagrams <https://www.bbc.co.uk/bitesize/guides/znjv4wx/revision/1>`_ ; 
+`Equation for a straight line <https://www.bbc.co.uk/bitesize/guides/zt8sgk7/revision/1>`_ ; 
+`Differentiation <https://www.bbc.co.uk/bitesize/guides/zyj77ty/revision/1>`_
 
 Plotting the data
 -----------------
@@ -453,7 +453,7 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 # In section . We have found that the values of parameters :math:`k` and :math:`m` that
 # minimise the square distance to the line, but are these the maximum likelihood estimates?
 #
-# The asnwer is 'yes and no'.  
-# See [here](https://www.math.arizona.edu/~jwatkins/n-mle.pdf)
+# See `here <https://www.math.arizona.edu/~jwatkins/n-mle.pdf>`_
+
 
 

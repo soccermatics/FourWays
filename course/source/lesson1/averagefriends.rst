@@ -1,3 +1,5 @@
+.. _averagefriends:
+
 Very average friends
 ====================
 
@@ -24,29 +26,14 @@ the ages and then dividing by the number of people. That is,
 
 .. math:: \frac{34+31+29+29+28+36+35+34+31+30}{10}=31.7
 
-.. warning::
+.. admonition:: Think yourself!
 
-   .. raw:: html
-
-      <p style="margin-top:1em; text-align:center">
-
-   .. raw:: html
-
-      <p style="margin-left:1em;">
-
-   **Think yourself:** Calculate the mean value for yearly income.
+   Calculate the mean value for yearly income.
 
    A pretty big hint is that:
 
    .. math::  12+22+23+31+34+36+40+52+62+106 = 418 
 
-   .. raw:: html
-
-      </p>
-
-   .. raw:: html
-
-      </p>
 
 Let’s learn some mathematical the notation for the mean. When we want to
 use a mathematical concept, it is useful to replace numbers by symbols.
@@ -89,28 +76,13 @@ as follows.
 then noting that the middle two incomes are £34,000 and £36,000. Taking
 the average of these two gives a median of £35,000 per year.
 
-.. warning::
+.. admonition:: Think yourself!
 
-   .. raw:: html
-
-      <p style="margin-top:1em; text-align:center">
-
-   .. raw:: html
-
-      <p style="margin-left:1em;">
-
-   **Think yourself:** What is the median age of the ten friends?
+   What is the median age of the ten friends?
 
    Hint: The ages written in order from youngest to oldest as 28, 29,
    29, 30, 31, 31, 34 , 34, 35 36
 
-   .. raw:: html
-
-      </p>
-
-   .. raw:: html
-
-      </p>
 
 Proportions
 -----------
@@ -138,26 +110,10 @@ this answer:
 Notice that the proportion is also a mean (an average). We sum the
 people who like gerkhins and then divide by the number of people.
 
-.. warning::
+.. admonition:: Think yourself!
+   
+   What proportion of the friends drunk soy lattes last week *and* like pickeled gherkins?
 
-   .. raw:: html
-
-      <p style="margin-top:1em; text-align:center">
-
-   .. raw:: html
-
-      <p style="margin-left:1em;">
-
-   **Think yourself:** What proportion of the friends drunk soy lattes
-   last week *and* like pickeled gherkins?
-
-   .. raw:: html
-
-      </p>
-
-   .. raw:: html
-
-      </p>
 
 Using the mean and the median
 -----------------------------

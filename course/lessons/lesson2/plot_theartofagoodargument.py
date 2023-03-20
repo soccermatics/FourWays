@@ -1,5 +1,5 @@
 """
-The Art of A Good Argument
+The art of a good argument
 ==========================
 
 Here we...
