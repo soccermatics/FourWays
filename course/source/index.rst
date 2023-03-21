@@ -74,6 +74,7 @@ Contents
    :maxdepth: 1
    :caption: Chaotic
 
+   gallery/lesson3/plot_elfarol
    gallery/lesson3/plot_thebutterflyeffect
    gallery/lesson3/plot_cellularchaos
    gallery/lesson3/plot_informationequalsrandomness
