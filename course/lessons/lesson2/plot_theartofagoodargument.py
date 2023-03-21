@@ -3,51 +3,131 @@ The art of a good argument
 ==========================
 
 Here we...
+
+
+The way we determine whether Charlie will start shouting is using 
+the following table.
+
+
 """
 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib
 
-n=26
+Charlie_shout =np.array([[0.1, 0.5],[0.7,0.95]])
+Charlie_rules = pd.DataFrame(data= Charlie_shout,index=['Aisha calm', 'Aisha shouting'], columns=['Charlie calm', 'Charlie shoting'])
+print('Probability of Charlie shouting:')
+print(Charlie_rules)
 
-#Self other 
-X11=0
-Y11=0.9
-X01=0
-Y01=0.7
-X10=0.0
-Y10=0.5
-X00=0.5
-Y00=0.1
+Aisha_shout =np.array([[0.1, 0.7],[0.5,0.95]])
+Aisha_rules = pd.DataFrame(data= Aisha_shout,index=['Aisha calm', 'Aisha shouting'], columns=['Charlie calm', 'Charlie shoting'])
+print('Probability of Aisha shouting:')
+print(Aisha_rules)
 
-x=np.zeros(n)
-y=np.zeros(n)
+###################################################################
+#
+# Initially, neither of them are shouting
 
-for i in range(n-1):
-    if (x[i]==1) and (y[i]==1): 
-        if np.random.rand()<X11:
-            x[i+1]=1
-        if np.random.rand()<Y11:
-            y[i+1]=1 
-    elif x[i]==1:
-        if np.random.rand()<X10:
-            x[i+1]=1
-        if np.random.rand()<Y01:
-            y[i+1]=1
-    elif y[i]==1:
-        if np.random.rand()<X01:
-            x[i+1]=1
-        if np.random.rand()<Y10:
-            y[i+1]=1          
+#Number of time steps
+T = 25
+
+Charlie=[0]
+Aisha=[0]
+
+
+
+
+###################################################################
+#
+# Now we loop over 25 steps of discussion according to the rules above. 
+#
+
+
+def argument(T,Charlie_rules,Aisha_rules,print_out=1):
+    for i in range(T):
+
+        Prob_Charlie = Charlie_rules.iloc[Charlie[i]][Aisha[i]]
+        if np.random.rand()<Prob_Charlie:
+            describe_Charlie = 'Charlie shouts. '
+            Charlie.append(1)
+        else:
+            describe_Charlie = "Charlie doesn't shout. "
+            Charlie.append(0)
+                    
+        Prob_Aisha = Aisha_rules.iloc[Charlie[i]][Aisha[i]]
+        if np.random.rand()<Prob_Aisha:
+            describe_Aisha = 'Aisha shouts.'
+            Aisha.append(1)
+        else:
+            describe_Aisha = "Aisha doesn't shout."
+            Aisha.append(0)
             
-    else:     
-        if np.random.rand()<X00:
-            x[i+1]=1
-        if np.random.rand()<Y00:
-            y[i+1]=1
+        if print_out:
+            print('Time step %d:' % (i+1) + describe_Charlie +describe_Aisha)
+    
+    return Aisha,Charlie
+
+Aisha,Charlie = argument(T,Charlie_rules,Aisha_rules)
         
-print(" ".join(str(int(i)) for i in x))
-print(" ".join(str(int(i)) for i in y))
-        
+###################################################################
+#
+# We can also represent the steps in the environment as a binary string.
+#
+print("Charlie's shouting as a string of zeros (clam) and ones (shouting):")
+print(' '.join(map(str, Charlie)))
+print("Aisha's shouting as a string of zeros (clam) and ones (shouting):")
+print(' '.join(map(str, Aisha)))
+
+
+###################################################################
+#
+# WNow we can make them argue lots of times!
+#
+
+for j in range(5):
+    
+    Charlie=[0]
+    Aisha=[0]
+    print('Argument %d' % (j+1))
+    print('----------')
+    Aisha,Charlie = argument(T,Charlie_rules,Aisha_rules,0)
+    print("Charlie's shouting as a string of zeros (clam) and ones (shouting):")
+    print(' '.join(map(str, Charlie)))
+    print("Aisha's shouting as a string of zeros (clam) and ones (shouting):")
+    print(' '.join(map(str, Aisha)))
+    print('\n')
+
+
+
+###################################################################
+#
+# Let's update Charlie's rules.
+#
+
+Charlie_shout =np.array([[0.1, 0.1],[0.1,0.95]])
+Charlie_rules = pd.DataFrame(data= Charlie_shout,index=['Aisha calm', 'Aisha shouting'], columns=['Charlie calm', 'Charlie shoting'])
+print('Probability of Charlie shouting:')
+print(Charlie_rules)
+
+
+###################################################################
+#
+# Now let's look at five arguments
+#
+
+
+for j in range(5):
+    
+    Charlie=[0]
+    Aisha=[0]
+    print('Argument %d' % (j+1))
+    print('----------')
+    Aisha,Charlie = argument(T,Charlie_rules,Aisha_rules,0)
+    print("Charlie's shouting as a string of zeros (clam) and ones (shouting):")
+    print(' '.join(map(str, Charlie)))
+    print("Aisha's shouting as a string of zeros (clam) and ones (shouting):")
+    print(' '.join(map(str, Aisha)))
+    print('\n')
+
+
+
