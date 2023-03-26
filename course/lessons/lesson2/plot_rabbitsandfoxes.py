@@ -49,7 +49,7 @@ the top part of the fraction :math:`dR` denotes the change in rabbits, :math:`R`
 and the bottom part, :math:`dt`, denotes the change in time, :math:`t`. 
 
 This type of equation, known as a differential equation can appear a bit strange 
-the first rime we encounter it. When we first meet differntiation in school
+the first rime we encounter it. When we first meet differentiation in school
 we write, for example,
 
 .. math::
