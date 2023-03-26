@@ -22,7 +22,7 @@ from mpl_toolkits import mplot3d
 # The Lorenz equations
 # --------------------
 #
-# The differential equations propsed by Lorenz were
+# The differential equations propsed by Lorenz are
 #
 # .. math::
 #

@@ -1,7 +1,5 @@
 """
-.. _chaosbutterfly:
-
-Cellular Chaos
+I, II, III, IV
 ==============
 """
 

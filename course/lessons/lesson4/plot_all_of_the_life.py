@@ -17,7 +17,7 @@ rcParams['figure.figsize'] = 12/2.54, 2/2.54
 ##############################################################################
 # This code is adapted from an implentation by Romain Fontaine (Copyright 2018)
 #
-# First we set up functions which allow us to run cellular automata.
+# First we set up functions which allow us to run sellular automata.
 
 def show_grid(ax,grid):
         ax.imshow(grid, cmap=plt.get_cmap('Blues'), interpolation='nearest')

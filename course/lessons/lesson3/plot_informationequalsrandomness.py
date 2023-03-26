@@ -1,8 +1,6 @@
 """
-.. _chaosbutterfly:
-
-Cellular Chaos
-==============
+Information Equals Randomness
+=============================
 """
 
 import numpy as np

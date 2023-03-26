@@ -10,8 +10,8 @@ from sphinx_gallery.sorting import ExampleTitleSortKey
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Modelling Complex Systems'
-copyright = '2023, David Sumpter'
+project = 'Four Ways'
+copyright = '2022, David Sumpter'
 author = 'David Sumpter'
 
 # -- General configuration ---------------------------------------------------
@@ -36,8 +36,7 @@ sphinx_gallery_conf = {
     'subsection_order': ExplicitOrder(['../lessons/lesson1',
                                        '../lessons/lesson2',
                                        '../lessons/lesson3',
-                                       '../lessons/lesson4',
-                                       '../lessons/lesson5'
+                                       '../lessons/lesson4'
                                        ])}
 
 source_suffix = {

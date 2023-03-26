@@ -1,8 +1,8 @@
 """
-.. _chaosbutterfly:
+Cellular Automata
+=================
 
-Cellular Chaos
-==============
+Here we...
 """
 
 import numpy as np

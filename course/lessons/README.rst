@@ -1,5 +1,4 @@
----------
-Class III
----------
+Course
+======
 
-From the book
+Welcome to the course.
