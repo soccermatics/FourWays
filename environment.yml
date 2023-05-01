@@ -30,6 +30,5 @@ dependencies:
       - kloppy
       - mplsoccer
       - sphinxcontrib-youtube
-      - sphinxcontrib-twitter
       - myst-parser
       - ffmpeg
