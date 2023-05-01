@@ -7,11 +7,12 @@ import sphinx_gallery
 from sphinx_gallery.sorting import ExplicitOrder
 from sphinx_gallery.sorting import ExampleTitleSortKey
 
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Four Ways'
-copyright = '2022, David Sumpter'
+copyright = '2023, David Sumpter'
 author = 'David Sumpter'
 
 # -- General configuration ---------------------------------------------------
@@ -77,5 +78,6 @@ myst_enable_extensions = [
     "smartquotes",
     "strikethrough",
     "substitution",
-    "tasklist"
+    "tasklist",
+    "sphinx-togglebutton"
 ]

@@ -14,6 +14,7 @@ dependencies:
   - sphinx
   - sphinx-gallery
   - sphinx_rtd_theme
+  - sphinx-togglebutton
   - matplotlib
   - numpy
   - scikit-learn
@@ -30,3 +31,4 @@ dependencies:
       - mplsoccer
       - sphinxcontrib-youtube
       - myst-parser
+      - ffmpeg

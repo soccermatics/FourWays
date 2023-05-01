@@ -4,6 +4,9 @@
    :align: center
 
 
+
+
+
 This is the companion website to David Sumpter's book 
 `Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_.
 These pages allow you to get deeper in to the mathematics presented 
@@ -91,6 +94,8 @@ Contents
 
    gallery/lesson4/plot_I_II_III_IV
    gallery/lesson4/plot_all_of_the_life
+   gallery/lesson4/plot_labyrinthfactory
+   gallery/lesson4/plot_langtonsloop
 
 
 .. image:: images/Hat4.png
