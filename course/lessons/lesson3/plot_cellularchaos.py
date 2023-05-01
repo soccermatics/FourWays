@@ -166,7 +166,7 @@ random_decimals=[]
 N=100
 
 for i in range(N):
-    middle_string = generate_ca(rule, steps, input_string=middle_string,print_output=1)
+    middle_string = generate_ca(rule, steps, input_string=middle_string,print_output=0)
     random_decimals.append(string_to_decimal(middle_string))
 
 print(random_decimals)
@@ -233,7 +233,7 @@ random_decimals=[]
 N=2000
 
 for i in range(N):
-    middle_string = generate_ca(rule, steps, input_string=middle_string,print_output=1)
+    middle_string = generate_ca(rule, steps, input_string=middle_string,print_output=0)
     random_decimals.append(string_to_decimal(middle_string))
 
 fig,ax=plt.subplots(num=1)
