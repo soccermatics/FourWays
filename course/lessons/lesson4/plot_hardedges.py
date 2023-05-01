@@ -89,7 +89,7 @@ group_female_new=group_female
 
 fig,axs=plt.subplots(4,1)  
 
-for t in range(5):
+for t in range(4):
 
     plotGroups(axs[t],group_male,group_female,'Time step:%d'%t)
    
