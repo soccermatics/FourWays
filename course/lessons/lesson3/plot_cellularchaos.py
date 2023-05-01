@@ -205,6 +205,8 @@ plt.show()
 # Lets make histograms
 #
 
+rcParams['figure.figsize'] = 12/2.54, 9/2.54
+
 def formatHist(ax,N):
     ax.set_ylim(0,N/5) 
     ax.set_xlim(0.049,1.052) 
@@ -214,7 +216,7 @@ def formatHist(ax,N):
     ax.set_xlabel('Number')
     ax.set_ylabel('Frequency')
     ax.set_xticks(np.arange(0.1,1.1,step=0.1)) 
-    ax.set_xticklabels(ax.get_xticks(), rotation = 45)
+    ax.set_xticklabels(ax.get_xticks(), rotation = 90)
     ax.set_xticklabels(['0.0 to 0.1','0.1 to 0.2','0.2 to 0.3','0.3 to 0.4','0.4 to 0.5','0.5 to 0.6','0.6 to 0.7','0.7 to 0.8','0.8 to 0.9','0.9 to 1.0'])
  
 fig,ax=plt.subplots(num=1)

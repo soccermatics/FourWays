@@ -97,7 +97,7 @@ Contents
    gallery/lesson4/plot_labyrinthfactory
    gallery/lesson4/plot_langtonsloop
    lesson4/fractals.rst
-
+   gallery/lesson4/plot_hardedges
 
 .. image:: images/Hat4.png
    :width: 200

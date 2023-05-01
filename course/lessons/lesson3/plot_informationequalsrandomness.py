@@ -1,6 +1,6 @@
 """
-Information Equals Randomness
-=============================
+What is entropy
+===============
 """
 
 import numpy as np
