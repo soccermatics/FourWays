@@ -96,6 +96,7 @@ Contents
    gallery/lesson4/plot_all_of_the_life
    gallery/lesson4/plot_labyrinthfactory
    gallery/lesson4/plot_langtonsloop
+   lesson4/fractals.rst
 
 
 .. image:: images/Hat4.png
