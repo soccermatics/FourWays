@@ -4,22 +4,18 @@
    :align: center
 
 
-
-
-
 This is the companion website to David Sumpter's book 
 `Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_.
 These pages allow you to get deeper in to the mathematics presented 
-in the book. They are both a tour of things that were a 
-bit too involved to get in to the book and can be read as standalone mini-adventures in to mathematics.
+in the book. They are both a tour of some of the ideas that were a 
+bit too involved to get in to the text itself and can be read as standalone mini-adventures in to mathematics.
 They also contain reference material for those looking to learn more. 
-I have tried to make each section in a way that allows you to spend a time really getting in to a subject.
+I have tried to make each section in a way that allows you to spend some 
+time really getting in to a subject. 
 
-
-You should be able to follow along using the maths you learnt in high school, but
-some programming experience can help. Each section gives links to useful background, 
-often using `BBC Byte Size <https://www.bbc.co.uk/bitesize/subjects/zqhs34j>`_ and/or 
-`Khan Academy <https://www.khanacademy.org/math/statistics-probability>`_, which 
+Each section gives links to useful background, 
+often using high school matchs from `BBC Byte Size <https://www.bbc.co.uk/bitesize/subjects/zqhs34j>`_ and/or University maths from
+`Khan Academy <https://www.khanacademy.org/math/statistics-probability>`_. These both 
 provide good summaries of methods. Although many of the topics --- :ref:`maximum likelihood<alikelyanswer>`, :ref:`chaos<chaosbutterfly>` 
 entropy etc. --- are taught in university maths and statsitics courses, 
 often in the second or third years, my aim is to show step-by-step how they work without 
@@ -30,14 +26,11 @@ studying at univesity...), teachers (looking for examples to illustrate why math
 and to people who work with statistics and computing in their jobs and want to get to the bottom
 of the underlying mathematical ideas.
 
-Many of the examples include code in Python. I recommend you download 
-`Anaconda <https://www.anaconda.com/products/distribution>`_ and run the code in either 
-a `Python
-Notebook <https://colab.research.google.com>`_ (download .ipynb files) or 
-using `Spyder <https://www.spyder-ide.org>`_ (download .py files). 
-Personally, I learn mathematics best when I have example applications, 
-code to run which solves numerical examples, 
-a graphical understanding, along with the maths itself. 
+Experience with programming is required for many of the examples. 
+Many of the examples include code in Python. I recommend you either download 
+`Anaconda <https://www.anaconda.com/products/distribution>`_ and run the code in `Spyder <https://www.spyder-ide.org>`_ (download .py files). 
+or upload the Python Notebook (download .ipynb files) `Google Colab <https://colab.research.google.com>`_. Personally, I learn mathematics best when I have example applications, 
+code to run which solves numerical examples, a graphical understanding, along with the maths itself. 
 It is all of these which I aim to provide here.  
 
 
@@ -81,8 +74,6 @@ Contents
    gallery/lesson3/plot_thebutterflyeffect
    gallery/lesson3/plot_cellularchaos
    gallery/lesson3/plot_informationequalsrandomness
-
-
 
 .. image:: images/Hat3.png
    :width: 200

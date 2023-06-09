@@ -2,18 +2,22 @@
 Langton's loop
 ==============
 
-This code is adapted from an implentation by Romain Fontaine (Copyright 2018)
+FROM BOOK
+
+Here is a video of Langton's loop.
+
+ ..  youtube:: Umf1QzONBx0
+   :width: 640
+   :height: 349
+
+
+This code below is adapted from an implentation by Romain Fontaine (Copyright 2018)
 
 """
-# hide-input tag
+
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import rcParams
-
-##############################################################################
-# 
-#
-# ```{toggle}
 
 def show_grid(ax,grid,make_animation):
         N=np.size(grid,1)
@@ -41,12 +45,8 @@ def iterate(grid,new_value):
             new_grid[i,j]=new_value(i, j,grid)
     return new_grid, grid
 
-###############################################################################
-# ```
-
 ##############################################################################
-# First we set up the cellular automata 
-
+# Now we set up the cellular automata 
 
 N = 120
 STEPS = 800
@@ -165,9 +165,3 @@ if make_animation:
     ani.save("Langtons_Loop_movie.mp4", writer=writer)
 
 
-##############################################################################
-# Here is a video of the output of this function.
-#
-# ..  youtube:: Umf1QzONBx0
-#   :width: 640
-#   :height: 349

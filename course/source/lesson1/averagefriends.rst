@@ -3,15 +3,17 @@
 Very average friends
 ====================
 
-**What we will learn:** How to calculate the mean, the median and
-proportions; when to use the mean or the median; mathematical notation
-for sums, means and proportions.
+In this lesson, I show how to calculate the mean, the median and
+proportions; discuss when to use the mean or the median; mathematical notation
+for sums, means and proportions. A good background for this section is  `Key Stage 2
+maths <https://www.bbc.co.uk/bitesize/topics/zm49q6f>`_
 
-**Pre-requisits:** `KS2
-maths <https://www.bbc.co.uk/bitesize/topics/zm49q6f>`__
+In the book, I describe London in numbers
 
-Throughout *Four Ways of Thinking* we follow the lives of ten friends
-living in London. We start with some basic statistics about their lives.
+.. image:: ../images/lesson1/London.png
+
+Then I give statistics about the lives of the ten fictional friends
+who we follow throughout the book. 
 
 .. image:: ../images/lesson1/Table.png
 
@@ -35,7 +37,7 @@ the ages and then dividing by the number of people. That is,
    .. math::  12+22+23+31+34+36+40+52+62+106 = 418 
 
 
-Let’s learn some mathematical the notation for the mean. When we want to
+When we want to
 use a mathematical concept, it is useful to replace numbers by symbols.
 For example, we can write :math:`x_1=34` as the age of the first person
 (Anthony), :math:`x_2=31` is the age of the second person (Aisha) and so
@@ -61,7 +63,7 @@ things we sum up. The two expressions above – one where we write out the
 shorthand – mean exactly the same thing.
 
 We won’t use this mathematical notation now, but we will use it later
-when we look at Fisher’s maximum likelihood.
+when we look at :ref:`Fisher’s maximum likelihood <alikelyanswer>`.
 
 The median
 ----------
@@ -91,12 +93,12 @@ The ‘Yes’ and ‘No’ answers to the gherkin question can be represented as
 :math:`1` for ‘Yes’ and :math:`0` for ‘No’. Let’s write their answers
 out again, with a 1 if a person likes gherkins, a 0 if they don’t.
 
-+------+------+------+------+------+------+------+------+------+------+
-| Ant  | A    | Cha  | B    | Jenn | Ha   | Nia  | John | S    | Suki |
-| hony | isha | rlie | ecky | ifer | ssan |      |      | ofie |      |
-+======+======+======+======+======+======+======+======+======+======+
-| 1    | 0    | 1    | 0    | 1    | 0    | 0    | 1    | 0    | 0    |
-+------+------+------+------+------+------+------+------+------+------+
+
++---------+----------+----------+----------+----------+----------+------+------+----------+------+
+| Antony  | Aisha    | Charlie  | Becky    | Jennifer | Richard  | Nia  | John | Sofie    | Suki |
++=========+==========+==========+==========+==========+==========+======+======+==========+======+
+| 1       |     0    |     1    |     0    |    1     |     0    |   0  | 1    | 0        | 0    |
++---------+----------+----------+----------+----------+----------+------+------+----------+------+
 
 What is the best estimate, from this data, of the frequency of
 Millennial Londoners who like pickled gherkins?
@@ -155,6 +157,5 @@ the best way for presenting data of the population as a whole.
 Well done
 ---------
 
-You have completed the first *Four Ways* lesson. In the next lesson, we
-are going to show why the way we calculate the mean and proportions are
-the best way to do it.
+You have completed the first *Four Ways* lesson. In the :ref:`next lesson<alikelyanswer>`, we
+meet Ronald Fisher and learn the best way to measure proportions and the mean.

@@ -1,34 +1,38 @@
 """
+
+.. _happyworld:
+
 Happy world
 ===========
 
-**What we will learn:** Plotting data and looking for relationships.
-Fitting straight lines to data. Understanding the slope and intercept of the line as parameters. 
-Showing that the parameters are the best possible fit to the data.
-
-**Good to know beforehand:** `Scatter diagrams <https://www.bbc.co.uk/bitesize/guides/znjv4wx/revision/1>`_ ; 
+In this section, we will learn about plotting data and looking for relationships;
+fitting straight lines to data; understanding the slope and intercept of the line 
+as parameters in a model; showing that the parameters are the best possible fit to the data.
+Some useful background material includes `Scatter diagrams <https://www.bbc.co.uk/bitesize/guides/znjv4wx/revision/1>`_ ; 
 `Equation for a straight line <https://www.bbc.co.uk/bitesize/guides/zt8sgk7/revision/1>`_ ; 
 `Differentiation <https://www.bbc.co.uk/bitesize/guides/zyj77ty/revision/1>`_
+
 
 Plotting the data
 -----------------
 
-Every year since 2005, the World Happiness Report has analysed the results of the Gallup World Poll, 
+Every year since 2005, the `World Happiness Report <https://worldhappiness.report/ed/2018/>`_ 
+ has analysed the results of the Gallup World Poll, 
 which is carried out in 160 countries (covering 99% of the world’s population). 
 The pollsters contact a random sample of people in each country and ask them over 
-100 questions – about their income, their health and their family. These questions include the 
+100 questions about their income, their health and their family. These questions include the 
 following question about happiness:::
 
 All things considered, how satisfied are you with your life as a whole these days? Use a 0 to 10 scale, 
 where 0 is dissatisfied and 10 is satisfied to give your answer.
 
 People living in different countries give different answers. In the UK is 6.94, making the UK 17th in the world for happiness. 
-The top ranked country – rather surprisingly given a national stereotype of people who are reserved and don’t express their 
-feelings very much – is Finland, with a score of 7.82. In general, Scandinavian and Northern European countries are 
+The top ranked country --- rather surprisingly given a national stereotype of people who are reserved and don’t express their 
+feelings very much --- is Finland, with a score of 7.82. In general, Scandinavian and Northern European countries are 
 ranked highest. The USA is 16th (0.03 points ahead of the UK). China, with a score of 5.59 and at 72nd place, is 
 roughly in the middle of the table of the countries surveyed. Other mid-ranked countries include Montenegro, Ecuador, 
-Vietnam and Russia. Further down the table, we find many African – Uganda and Ethiopia placed 117th and 131st, 
-respectively – and Middle Eastern countries – Iran is at 110 and Yemen at 132.  
+Vietnam and Russia. Further down the table, we find many African --- Uganda and Ethiopia placed 117th and 131st, 
+respectively, Middle Eastern countries --- Iran is at 110 and Yemen at 132.  
 The unhappiest country in the world in 2022 is Afghanistan, with an average happiness score of only 2.40.
 """
 
@@ -107,17 +111,16 @@ plt.show()
 #
 # For example, if the average life expectancy in the country 
 # is 60 then the equation above predicts the happiness to be 60/12=5. 
-# If the life expectancy is 78 then average happiness will be 78/12=6.5. 
-
+# If the life expectancy is 78 then average happiness is predicted to be 78/12=6.5. 
+#
 # We can draw this equation in the form of a straight line going 
 # through the cloud of country points, as shown below.
 
 fig,ax=plotData(df,'LifeExp','Happiness')
 
-# Setup parameters 
-# a is the lines intercept
-# b is the slope of the line
-# and calculate a line
+# Setup parameters: m is the slope of the line
+# And calculate a line with that slope.
+
 m=1/12
 Life_Expectancy=np.arange(0.5,100,step=0.01)
 Happiness= m*Life_Expectancy
@@ -131,9 +134,12 @@ for country in ['United States','United Kingdom','Croatia','Benin','Finland','Ye
 plt.show()
 
 ##############################################################################
-# Try changing the slope and the intercept of the line above by 
-# changing the values 0 and 1/12 in the code above and replotting the line.
-# See if you can find a line that lies closer to the data points.
+# .. admonition:: Try it yourself!
+#   
+#   Download the code by clicking on the link below and 
+#   try changing the slope and the intercept of the line above by 
+#   changing the values 1/12 and replotting the line.
+#   See if you can find a line that lies closer to the data points.
 #
 # Each of the dotted lines show how far the prected line – which predicts that happiness is one 
 # twelfth of life expectancy – is from the data for each of the six highlighted countries.
@@ -161,14 +167,12 @@ Model_Sum_Of_Squares = np.sum(df['SquaredDistance'])
 
 print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 
-##############################################################################
-# The question is whether this line is the ‘best’ line? You can test to see if you get a line
-# which is closer to the data, by changing a and b above and seeing if the sum of squares gets smaller.
-# 
 
 ##############################################################################
 # Finding the best fit line 
 # -------------------------
+# The question is what the ‘best’ line is?
+# 
 # Let’s start by formulating this problem mathematically. 
 # For each country :math:`i`, 
 # we have two values: the life satisfaction, which I will call :math:`y_i` 
@@ -202,7 +206,8 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 #
 #  ( y_1 - m \cdot x_1)^2 +  ( y_2 - m \cdot x_2)^2  + ... + ( y_{136} - m \cdot x_{136})^2  
 #
-# The above equation is can be written in shorthand form as
+# The above equation is can be written in shorthand form (using the sum notation we met 
+# in :ref:`the section on our average friend <averagefriends>` as
 #
 # .. math::
 #
@@ -245,10 +250,17 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 # 
 # Problem solved. 
 #
+# .. admonition:: Think yourself!
+#   
+#   Use the derivative to find the minimum of
+#
+#   .. math::
+#
+#       (9-3m)^2  
+#
 # Although  the algebra is more complicated, we can use exactly the same logic to solve the problem 
 # above, of finding the value of :math:`m` which minimises this sum of squares. We first
 # take the derivative 
-#
 #
 # .. math::
 #
@@ -256,8 +268,9 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 #
 #  = - 2 x_1 y_1 + 2 x_1^2 m  - 2 x_2 y_2 + 2 x_2^2 m  +  ... - 2 x_{136} y_{136} + 2 x_{136}^2 m  
 #
-# Again, although this particular step involves alot of algebra, notice that we are doing exactly the same as in the example above.
-# Another thing that can confuse students (when I teach this in statistics) is that we differentiate with respect to :math:`m`. 
+# Although this particular step involves alot of algebra, notice that we are doing exactly the same as in the example above.
+# Another thing that I find can confuse students (when I teach this in statistics) is that 
+# we differentiate with respect to :math:`m`. 
 # In school, we often use the letter :math:`x` for the variable name and :math:`m` for a constant. Here it is the other way round. 
 # The data :math:`x_i` and :math:`y_i` are constants (measurements from countries) and  :math:`m` is the variable we differentiate for.
 #
@@ -267,7 +280,7 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 #
 #  \sum_i^n 2 x_i y_i - \sum_i^n 2 \cdot x_i^2 m
 #
-# and we solve equal to zero (to find the point at which it is mimized, and the slope is zero) to get
+# and we solve equal to zero (to find the point at which it is minimized, and the slope is zero) to get
 #
 # .. math::
 #
@@ -289,7 +302,8 @@ print('The best fitting line has slope m = %.4f' % m_best)
 
 ##############################################################################
 # Our intial guess of :math:`m = 1/12 = 0.0833` wasn't so far away from the best fitting value. 
-# But this new slope is slightly closer to the data. We can now plot this and recalculate the model sum of squares
+# But this new slope is slightly closer to the data. We can now plot this and recalculate 
+# the model sum of squares
 # 
 
 Life_Expectancy=np.arange(0.5,100,step=0.01)
@@ -318,8 +332,18 @@ print('The model sum of squares is %.4f' % Model_Sum_Of_Squares)
 ##############################################################################
 # Including the Intercept
 # -----------------------
+# An equation for a straight line usually has two components a slope :math:`m`
+# which we have already seen and an intercept :math:`k`, which so far we have assumed is zero.
+# We can write the equation for a straight line as
 #
-# Let's start by shifting the data so that it has a mean (average) of zero.
+# .. math::
+#
+#  y = k + m \times x
+#
+# We now look at how we can improve the fit of the model by
+# including this intercept.
+#
+# We start by shifting the data so that it has a mean (average) of zero.
 # To do this we simply take away the mean value from both life expectancy and 
 # from happiness. Then replot the data 
 
@@ -341,7 +365,7 @@ plt.show()
 # all countries in the world. The United States life expectancy is around 3.5 years longer than 
 # the average and the citizens of the USA are about 1.3 points happier than average.
 # It is worth noting that the correction is for country averages and does not account for the size of the 
-# populations of these various countries. It does though give us a new way 
+# populations of these various countries. It does however give us a new way 
 # of seeing between country differences.
 # 
 #
@@ -367,10 +391,9 @@ ax.set_ylim(-3,3)
 
 plt.show()
 
-
 ##############################################################################
-# This line appears to fit better than the one we fitted earlier! It seems 
-# to lie closer to the points and better capture the relationship in the data.
+# This line appears to fit better than the one we fitted earlier! It lies 
+# closer to the points and better capture the relationship in the data.
 # To test whether this is indeed the case we can calculate the sum of squares
 # between this new line and the shifted data. This is as follows
 
@@ -443,17 +466,6 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 # country citizens are about 1 point happier on a scale of 0 to 10. It isn't 
 # the whole truth, but it isn't entirely misleading either. 
 
-
-
-
-##############################################################################
-# Maximum likelihood
-# ------------------
-# 
-# In section . We have found that the values of parameters :math:`k` and :math:`m` that
-# minimise the square distance to the line, but are these the maximum likelihood estimates?
-#
-# See `here <https://www.math.arizona.edu/~jwatkins/n-mle.pdf>`_
 
 
 

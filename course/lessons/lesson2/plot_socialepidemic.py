@@ -1,7 +1,7 @@
 """
 .. _socialepidemic:
 
-The Social Epidemic
+The social epidemic
 ===================
 
 FROM BOOK
