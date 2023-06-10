@@ -17,14 +17,13 @@ Plotting the data
 -----------------
 
 Every year since 2005, the `World Happiness Report <https://worldhappiness.report/ed/2018/>`_ 
- has analysed the results of the Gallup World Poll, 
+has analysed the results of the Gallup World Poll, 
 which is carried out in 160 countries (covering 99% of the world’s population). 
 The pollsters contact a random sample of people in each country and ask them over 
 100 questions about their income, their health and their family. These questions include the 
-following question about happiness:::
+following question about happiness:
 
-All things considered, how satisfied are you with your life as a whole these days? Use a 0 to 10 scale, 
-where 0 is dissatisfied and 10 is satisfied to give your answer.
+.. image:: ../../images/lesson1/HappyQuestion.png
 
 People living in different countries give different answers. In the UK is 6.94, making the UK 17th in the world for happiness. 
 The top ranked country --- rather surprisingly given a national stereotype of people who are reserved and don’t express their 
@@ -464,8 +463,21 @@ print('The model sum of squares is still %.4f' % Model_Sum_Of_Squares)
 #
 # We can say (roughly speaking) that for every 8 years of life expectancy
 # country citizens are about 1 point happier on a scale of 0 to 10. It isn't 
-# the whole truth, but it isn't entirely misleading either. 
+# the whole truth (see the word of warning below), but it isn't entirely misleading either. 
 
+
+
+
+##############################################################################
+# A word of caution
+# -----------------
+# 
+# Although there is a relationship between these two variables, this does not mean
+# that life expectancy causes happiness.
+#
+# .. image:: ../../images/lesson1/BeckyExplains.png
+#
+# In the book you can learn more about the dangers on confusing correlation for causation.
 
 
 

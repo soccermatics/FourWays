@@ -4,12 +4,9 @@
 Rabbits and foxes
 =================
 
-
-**What we will learn:** How to write differential equation models to show the rate of change of
-populatins of predators and prey. We will simulate the model using Python. Then we draw a phase plane 
-for the model.
-
-**Watch this first:** `Differential equations <https://www.khanacademy.org/math/differential-equations>`_
+In this section we will learn how to write `differential equations <https://www.khanacademy.org/math/differential-equations>`_
+ models to show the rate of change of populatins of predators and prey. We will simulate the model using Python. Then we draw the phase plane 
+for the model, just as Parker does in the book. 
 
 Differential equations
 ----------------------
@@ -21,9 +18,10 @@ e.g.
    
    \mbox{F} +  \mbox{R} \\rightarrow 2 \mbox{F} 
 
-This means that an F and R together becomes two F's. Parker expalins as follows,
+This means that an F and R together becomes two F's. My character from Santa Fe, Professor Parker 
+expalins as follows,
 
-IMAGE FROM BOOK HERE
+.. image:: ../../images/lesson2/ParkerExplains.png
 
 While in Leipzig, A. J. Lotka learnt how chemical reactions can be used to 
 specify the rate of change of populations, i.e. in terms of the derivates 
@@ -48,14 +46,16 @@ This equation denotes the rate of change of :math:`R` over time.
 the top part of the fraction :math:`dR` denotes the change in rabbits, :math:`R`, 
 and the bottom part, :math:`dt`, denotes the change in time, :math:`t`. 
 
-This type of equation, known as a differential equation can appear a bit strange 
-the first rime we encounter it. When we first meet differntiation in school
-we write, for example,
+Differentiation in school
+-------------------------
+
+I remeber that after learning about differentiation in school, I found this type of bit strange 
+the first time I encountered it. In school we might have a function that looks like, for example,
 
 .. math::
    :label: timeint
 
-   R(t) = \\frac{1}{2} a t^2
+   R(t) =  a t^2
 
 
 then take the derivative to get 
@@ -63,21 +63,25 @@ then take the derivative to get
 .. math::
    :label: timegrow
  
-   \\frac{dR}{dt} = a t
+   \\frac{dR}{dt} = 2 a t
 
-  
 This is also a differential equation. It says that the rate of change of :math:`R` over time
-is proportional to time. The modelling difference between equation :eq:`timegrow` and 
+is proportional to time. The difference between equation :eq:`timegrow` and 
 :eq:`rabbitgrow` is that the former says that rabbits grow proportionally to time, while
 the latter says that rabbits grow proportionally to the number of rabbits. In the case that
 rabbits grow in proportion to time, then we say that :eq:`timeint` is the solution to 
 equation :eq:`timegrow` since it tells us how many rabbits there 
-will be at any point in time. I think this is where differential equations can be a bit
-confusing, because in school we are usually given :eq:`timeint` and asked to find :eq:`timegrow`. 
+will be at any point in time. 
+
+I think this is where differential equations can be a bit confusing, 
+because in school we are usually given :eq:`timeint` and asked to find :eq:`timegrow`. 
 For most differential equations it is the other way round. We are given equation :eq:`rabbitgrow` 
 and asked to find the the number of rabbits :math:`R` as a function of time. 
 
-We aren't going to solve these equations yet. First we need to have the equations for foxes. In chemical 
+Back to rabbits anf foxes
+-------------------------
+
+We have an equation for growth of rabbits, now we need to have equations that include foxes. In chemical 
 reaction form these are,
 
 .. math::
@@ -109,7 +113,7 @@ than for the birth of foxes (:math:`c`). This is because
 it takes more than one rabbit to feed a fox and we set the parameters so that :math:`c<b`.
 
 It may seem strange to treat rabbits and foxes as chemicals.  
-As we all know, two rabbits are needed to produce baby rabbits and when a fox eats a rabbit, 
+As we all know, two rabbits are needed to produce baby rabbits and when a fox eats a rabbit 
 it doesn’t simply transform it directly in to a new fox, as the chemical equation suggests. 
 Also, in the description above, the grass is not depleted: there is no chemical equation 
 describing how grass is transformed to rabbit poop. But the point of a mathematical model 
@@ -120,12 +124,10 @@ understand this abstract problem first, before we make any claims about what hap
 rabbits and real foxes. 
 
 
-
-
 Simulating the model
 --------------------
 
-In this section we use Python to run a numerical simulation of the model.
+We can use Python to run a numerical simulation of the model.
 
 """
 
@@ -189,15 +191,20 @@ plt.show()
 # when there are few rabbits left, the foxes start to die out too, allowing the rabbit 
 # population to grow again.
 #
+#
+# .. admonition:: Think yourself!
+#   
+#     Download the code and run it. Try changing the paramater values above. 
+#     Making :math:`a` larger, for example, means the rabbit population
+#     grows faster.
+
+##############################################################################
 # Visualising the cycle
 # ---------------------
 #
 # In the figure above, we show how foxes and rabbits change over time.
 # We can also plot how they change relative to each other (a so called phase plane). 
 # For the numerical simulations we do this as follows:
-
-
-
 
 def plotPhasePlane(ax,R,F):
     ax.plot(R, F, '-',color='k')
@@ -219,14 +226,9 @@ plt.show()
 #
 # Finding the equilibrium
 # -----------------------
-# In order to better understand this cycle, in the book, 
-# Parker first looked at 
-# the equilibria where the rate at which rabbits are born equals the rate 
-# at which they die. 
-# 
-# BOOK TEXT HERE
-#
-# We can find the rabbit equilibtirum by solving
+# In order to better understand this cycle we look at
+# the equilibria (the steady states) where the rate at which rabbits are born equals the rate 
+# at which they die. We can find the rabbit equilibtirum by solving
 # 
 # .. math::
 # 
@@ -259,9 +261,9 @@ ax.plot([d/c,d/c],[-100,100],linestyle=':',color='k')
 plotPhasePlane(ax,R,F)
 
 ##############################################################################
-# Parker went on to draw arrows to indicate the direction 
-# of change. We do this below by evaluating :math:`dR/dt` and :math:`dF/dt`
-# for different values and plotting them.
+# We can draw arrows to indicate the direction of change. To
+# do this, we evaluate :math:`dR/dt` and :math:`dF/dt`
+# for different values and plot them.
 
 x = np.linspace(1, 30 ,6)
 y = np.linspace(1, 12, 5)
@@ -281,33 +283,18 @@ ax.plot([d/c,d/c],[-100,100],linestyle=':',color='k')
 plotPhasePlane(ax,R,F)
 
 ##############################################################################
-# A look at Lotka's orginal article
-# ----------------------------------
-# To find the exact shape of this rotation, we can use a trick that Lotka 
-# described in an article he wrote in 1920. By dividing the rabbit equation by the fox equation he got 
 #
-# .. math::
-# 
-#    \frac{dR}{dF} = \frac{aR -bRF}{cRF - d F}  
+# Parker describe's the cycle
+# ---------------------------
 #
-# We can then rearrange this equation to get 
-# 
-# .. math::
-# 
-#    \left(c -d/R \right) dR = \left(a/F -b \right) dF 
-# 
-# Integrating both sides ofthis equation we get 
+# Here is how Professor Parker sums up what we have learnt in Santa Fe.
 #
-# .. math::
-# 
-#    cR -d\log(R) = a \log(F) - b F + C
-# 
-# where :math:`C`  is the constant of integration. This last equation tells us a relationship that 
-# must always hold between rabbits and foxes. To understand what the relationship implies, 
-# imagine  the equation above was simply :math:`Y+X=C`  instead. This would imply the total number of 
-# rabbits and foxes is equal to C=10. So, if :math:`C=10` then we could have :math:`Y=3` foxes and :math:`X=7` 
-# rabbits (because 3+7=10), 
-# or 6 foxes and 4 rabbits (because 6+4=10), but we couldn’t have :math:`Y=6` foxes and :math:`X=7` rabbits (because 6+7≠10). 
-# In our case, the relationship in the equation is more complicated, involving logarithms, but the idea is the 
-# same: it says that for any particular value of C all values of  X and Y must obey this equation.  
-# Imagine for example, we started with X=4 rabbits and Y=6 foxes. This gives C=
+# .. image:: ../../images/lesson2/ParkerCycle.png
+
+
+##############################################################################
+#
+# Learn more
+# ----------
+#
+# HERE AND IN OTHER SECTIONS WE SHOULD ADD REFERENCES.

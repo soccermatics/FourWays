@@ -2,10 +2,18 @@
 Cellular automata
 =================
 
+In this section we run some of the cellular automata rules from the book using Python code. 
+Download the code and run it yourself to investigate how these models work.
 
 
 The domino rule
 ---------------
+
+In Santa Fe, Chris describes the domino rule as follows.
+
+.. image:: ../../images/lesson2/Domino.png
+
+We start by writing code to apply the rule to a binary string.
 
 """
 
@@ -50,22 +58,32 @@ print('After applying rule : ' + string)
 
 
 ##############################################################################
-# We can repeadtedly apply the rule as follows:
+# We can repeadtedly apply it as follows:
 
 steps = 5
 string='11101100001111000011111111101'
-
 
 for i in range(steps):
     print('Time step %d:'%i + string)
     string=apply_domino(string)
     
 
+# .. admonition:: Think yourself!
+#   
+#       Look at a starting string with all zeros, apart from one one. Run the 
+#       cellular automata for enough steps so that all the zeros turn to one.
+#       Notice how the domino rally travels from one side to the other.
 
 ##############################################################################
 # The politics rule
 # -----------------
-
+#
+# Chris goes on to describe a new set of the following three rules.
+#
+# .. image:: ../../images/lesson2/Politics.png
+#
+# Let's implement these in Python
+#
 
 def apply_political(string):
 
@@ -81,7 +99,6 @@ def apply_political(string):
         left = cells[(j-1)%N]
         above = cells[j]
         right= cells[(j+1)%N]
-        
         
         # If the cell to the left is a 1 then the cell becomes a 1
         # Otherwise it remains the same.
@@ -112,16 +129,27 @@ print('After applying rule : ' + string)
 steps = 5
 string='0100011011110101011010'
 
-
 for i in range(steps):
     print('Time step %d:'%i + string)
     string=apply_political(string)
     
+# All the isolated 0's or 1's are replaced 
+# by their majority neighbours (we assume that the bits form a loop, so 
+# the 1 on the end of the string has neighbour 0 to its left and adopts its 
+# right neighbour as the 0 at the start of the string and thus becomes a 0).
+
 
 
 ##############################################################################
 # The alternate rule
-# -----------------
+# ------------------
+#
+# In the book, Esther and I find rules which create alternating lines like these.
+#
+# .. image:: ../../images/lesson2/TransitionAlternate.png
+#
+# Let's implement these rules in Python. 
+
 
 def apply_alternate(string):
 
@@ -159,12 +187,16 @@ for i in range(steps):
     print(string)
     string=apply_alternate(string)
     
-    
-    
 
 ##############################################################################
 # The checquerboard rule
-# ---------------------
+# ----------------------
+#
+# Esther and I also found a rule which makes the following pattern.
+#
+# .. image:: ../../images/lesson2/TransitionCheck.png
+#
+# Let's look at a Python implementation.
 
 def apply_checquerboard(string):
 
@@ -210,3 +242,9 @@ for i in range(steps):
     print(string)
     string=apply_checquerboard(string)
     
+
+##############################################################################
+# We will look again at these last two rules in the section on 
+# :ref:`cellular chaos<cellularchaos>` where we implement a model which takes
+# a set of rules as input and produces a cellular automata as output.
+

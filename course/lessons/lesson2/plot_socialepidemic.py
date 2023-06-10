@@ -4,7 +4,21 @@
 The social epidemic
 ===================
 
-FROM BOOK
+In this section we go on to solve some more differential equations which describe rules of
+interaction. Here I assume you have already worked through and understood 
+the section on :ref:`predator prey models<rabbitsandfoxes>`. 
+
+In the book I first introduce the SIR model of disease spread, by looking at infections.
+
+.. image:: ../../images/lesson2/Epidemic1.png
+
+Then I discuss recoveries.
+
+.. image:: ../../images/lesson2/Epidemic2.png
+
+Let's turn these rules of interaction in to differential equations and analyse how they describe
+disease spread.
+
 
 The SIR model
 -------------
@@ -53,7 +67,6 @@ from scipy import integrate
 # We also define the parameter values. You can change these to see how
 # changes to the paramaters leads to changes in the outcome of the model. 
 
-
 # Parameter values
 b = 3.5
 c = 1
@@ -92,6 +105,15 @@ S, I, R = X.T
 fig,ax=plt.subplots(num=1)
 plotEpidemicOverTime(ax,S,I,R)
 plt.show()
+
+# .. admonition:: Think yourself!
+#   
+#     When :math:`b=1`, for what values of :math:`c` does the number of infectives  
+#     always decrease? Try changing the initial number of infectives to :math:`0.5`.
+#     Now find values of :math:`c` where the number of infectives  
+#     always decreases? 
+
+
 
 ##############################################################################
 # As with the  :ref:`precator prey model<rabbitsandfoxes>` we can find
@@ -136,14 +158,29 @@ plt.show()
 
 
 ##############################################################################
-#
+# The solution to :math:`S=c/b` is known as herd immunity. When :math:`S>c/b` 
+# then the number of infectives increase. So when :math:`S=0.9999` then if
+# :math:`b>0.9999c` then the infection increases and when 
+# :math:`b<0.9999c` then the infection decreases. Simiarly, when :math:`S=0.5`then if
+# :math:`b>0.5c` then the infection increases and it decreases when 
+# :math:`b<0.5c`.
+
+
+
+##############################################################################
 # Social recovery
 # ---------------
+# For many social behaviours, it isn’t just the adoption of a fad or a news cycle that 
+# is contagious, but also the way in which we recover. When we get a cold, flu or Covid-19, 
+# the best thing to do is to go home, rest and not spread the virus. Spending time with people 
+# who have already been ill doesn’t help us recover more quickly (even if their sympathy might 
+# help us feel a bit better). Recovery is independent between individuals. In the book, I look at
+# social recovery, when it depends on how many are recovered.
 #
-# FROM BOOK
+# .. image:: ../../images/lesson2/SocialEpidemic.png
 #
-# 
-# In terms of differential equations, the rate of change of susceptible individuals remains the same as before
+# In terms of differential equations, the rate of change of susceptible individuals 
+# remains the same as before
 # .. math::
 #    :label: susc
 #
@@ -237,8 +274,8 @@ plt.show()
 
 ##############################################################################
 #
-# Examples
-# --------
+# Real world examples
+# -------------------
 #
 # Applause
 # Other examples

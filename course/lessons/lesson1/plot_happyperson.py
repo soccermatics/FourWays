@@ -2,13 +2,15 @@
 Happy individual
 ================
 
-**Imagine, after you have paid your bills, you have more than $200 per month to spend divided between three 
-categories: (1) material items, (2) experiences and (3) time-saving services. How should you 
-spend this money in order to be as happy as possible?**
+In Four Ways of Thinking our friends switch focus.
 
-Here we try to answer this question using a questionnaire 
-conducted by Whillans et al. (2017). We look in particular at 1067 people with varying incomes, 
-but all with a budget of at least $200 to spend.  The study participants typically 
+.. image:: ../../images/lesson1/HappyIndividual.png
+
+The specific question we look at here is this: **Imagine, after you have paid your bills, you have more than $200 per month to spend divided between three 
+categories: (1) material items, (2) experiences and (3) time-saving services. How should you 
+spend this money in order to be as happy as possible?**  We try to answer this question 
+using a questionnaire conducted by Whillans et al. (2017). We look in particular at 1067 people 
+with varying incomes, but all with a budget of at least $200 to spend.  The study participants typically 
 spent about $250 on (each of) material items and experiences, and about half as much on time-saving.   
 
 All the participants were asked the question:
@@ -18,12 +20,15 @@ Suppose we say that the top of the ladder represents the best possible life for 
 the ladder represents the worst possible life for you. On which step of the ladder would you say you 
 personally feel you stand at this time?
 
-This is how the researchers measure happiness. 
+This is how Whillans and here colleagues measure happiness. 
+
+Loading in the data
+-------------------
+
 """
 
 import numpy as np
 import pandas as pd
-import pyreadstat
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
@@ -33,69 +38,52 @@ from pylab import rcParams
 rcParams['figure.figsize'] = 12/2.54, 12/2.54
 
 
-
-def Rescale(value, scale_spending):
-    if value>=0:
-        Q = scale_spending[int(value)]
-    else:
-        Q =np.nan
-    return Q
-
-df, meta = pyreadstat.read_sav("../data/Study7_QualtricsData.sav")
-
-# The data is coded for different spending levels. 
-# This converts the spending levels in to dollars.
-scale_spending = np.array([0] + list(range(10,100,20)) + list(range(150,1000,100)) + [1000] + [1000])
-scale_spending = np.append(scale_spending, [np.nan,np.nan,np.nan])
-scale_spending_labels = meta.value_labels['labels7']
-
-# There are three different happiness measures in the data
-# using different measures gives only slightly different results. 
-
-happiness_measure='SWL2'
-
-
-for original_name in ['MATA','Bills','TSA','EXPA']:
-    df['spent_on_' + original_name] = df.apply(lambda row: Rescale(row[original_name],scale_spending), axis=1)
-
 # Find people who spent more than 200 dollars in total 
 # These are the people we will look at in this study.
+
+
+df=pd.read_csv('../data/spending.csv')  
+
 morethan200=df['spent_on_MATA']+df['spent_on_TSA']+df['spent_on_EXPA'] >200
 df=df[morethan200]
     
-print('The average happiness score was %.2f.' % np.mean(df[happiness_measure]))
-print('The standard deviation in happiness score was %.2f.' %np.std(df[happiness_measure]))
-print('90 percent of people had a happiness score of %.2f or more.' % np.quantile(df[happiness_measure],0.9))
-print('10 percent of people had a happiness score of %.2f or less.' % np.quantile(df[happiness_measure],0.1))
+print('The average happiness score was %.2f.' % np.mean(df['Happiness']))
+print('The standard deviation in happiness score was %.2f.' %np.std(df['Happiness']))
+print('90 percent of people had a happiness score of %.2f or more.' % np.quantile(df['Happiness'],0.9))
+print('10 percent of people had a happiness score of %.2f or less.' % np.quantile(df['Happiness'],0.1))
 
 
 ##############################################################################
-# Think about the answer you would give to this question now....
+# .. admonition:: Try it yourself!
+#
+#   Think about the answer you would give to this question now. By putting yourself in
+#   the participants shoes you can better understand what it means when people rank
+#   their happiness.
 #
 # The participants gave a wide-range of answers, with an average of 7.15, 
-# but scores as low as 3 and as high as 10 were not untypical.  
+# but scores as low as 3 and as high as 10 were not untypical. 
 
 
 ##############################################################################
-# Does spending money on saving time make you happy?
-# --------------------------------------------------
+# Spending money on saving time
+# -----------------------------
 #
 # **First question: are people who spend money on saving time happier?**
 #
 # Let's start by looking at the difference in average happiness
 
-didspend=df['TSA']>0
-didntspend=df['TSA']<=0
-mean_did= np.mean(df[happiness_measure][didspend])
-mean_didnt= np.mean(df[happiness_measure][didntspend])
+didspend=df['spent_on_TSA']>0
+didntspend=df['spent_on_TSA']<=0
+mean_did= np.mean(df['Happiness'][didspend])
+mean_didnt= np.mean(df['Happiness'][didntspend])
 
 print('The average happiness score for those who spent on time-saving was %.2f.' % mean_did)
 print('The average happiness score for those who did not spent on time-saving was %.2f.' % mean_didnt)
 
-std_did=np.nanstd(df[happiness_measure][didspend])
-n_did=len(df[happiness_measure][didspend])
-std_didnt=np.nanstd(df[happiness_measure][didntspend])
-n_didnt=len(df[happiness_measure][didntspend])
+std_did=np.nanstd(df['Happiness'][didspend])
+n_did=len(df['Happiness'][didspend])
+std_didnt=np.nanstd(df['Happiness'][didntspend])
+n_didnt=len(df['Happiness'][didntspend])
 cohensd=(mean_did-mean_didnt)/np.sqrt(((n_did-1)*std_did**2+(n_didnt-1)*std_didnt**2)/(n_did+n_didnt-2))
 
 print('The Cohens D for this difference is %.2f' % cohensd)
@@ -107,7 +95,7 @@ print('The Cohens D for this difference is %.2f' % cohensd)
 # The difference between the two groups can’t be attributed to chance, since over one 
 # thousand people were surveyed, but it is not a particularly large difference. 
 # But it is not particularly large. 
-# It is illustrated below in a histogram for those 
+# This point is illustrated below in a histogram for those 
 # who did spend money on time saving (top) and those who did not.
 
 def FormatFigure(ax):
@@ -122,9 +110,9 @@ def FormatFigure(ax):
 
  
 fig,(ax1,ax2)=plt.subplots(2,1)
-ax1.hist(df[happiness_measure][didspend], np.arange(0.01,10.5,1), color='orange', edgecolor = 'black',linestyle='-',alpha=0.5, label='Spent on saving time', density=True,align='right')
+ax1.hist(df['Happiness'][didspend], np.arange(0.01,10.5,1), color='orange', edgecolor = 'black',linestyle='-',alpha=0.5, label='Spent on saving time', density=True,align='right')
 FormatFigure(ax1)
-ax2.hist(df[happiness_measure][didntspend], np.arange(0.01,10.5,1), alpha=0.5, edgecolor = 'black', label='Did not spend on saving time',  density=True,align='right')
+ax2.hist(df['Happiness'][didntspend], np.arange(0.01,10.5,1), alpha=0.5, edgecolor = 'black', label='Did not spend on saving time',  density=True,align='right')
 FormatFigure(ax2)
 
 plt.show()
@@ -138,8 +126,8 @@ plt.show()
 # who did spend on time-saving and one person who didn’t spend on time-saving. We then look at
 # the proportion of times the one who did spend on time-saving is happier.
 
-df_did=df[happiness_measure][didspend]
-df_didnt=df[happiness_measure][didntspend]
+df_did=df['Happiness'][didspend]
+df_didnt=df['Happiness'][didntspend]
 rand_did=df_did.sample(10000,replace=True)
 rand_didnt=df_didnt.sample(10000,replace=True)
 print('The person who did spend on time-saving is happiest %.2f percent of times.' % (np.mean(np.array(rand_did)>np.array(rand_didnt))*100))
@@ -150,8 +138,12 @@ print('The person who did spend on time-saving is happiest %.2f percent of times
 # if you did. Likewise, if you currently do spend some of your budget on time-saving, 
 # then the probability you would be happier if you didn’t make the spend is 45%. 
 #
-# Answer to first question: It makes sense to spend money 
-# on time-saving, but results are by no means guaranteed.
+# In the book I let the friends explain:
+#
+# .. image:: ../../images/lesson1/FriendsExplain.png
+#
+# ** Answer to first question: It makes sense to spend money 
+# on time-saving, but results are by no means guaranteed.**
 
 
 
@@ -165,6 +157,30 @@ print('The person who did spend on time-saving is happiest %.2f percent of times
 #
 # To answer this question, we plot average happiness against the
 # amount of money people spent. 
+
+
+
+# The data is coded for different spending levels. 
+# This converts the spending levels in to dollars.
+scale_spending = np.array([0] + list(range(10,100,20)) + list(range(150,1000,100)) + [1000] + [1000])
+scale_spending = np.append(scale_spending, [np.nan,np.nan,np.nan])
+scale_spending_labels = {0.0: '$0',
+ 1.0: '$1-$19',
+ 2.0: '$20-$39',
+ 3.0: '$40-$59',
+ 4.0: '$60-$79',
+ 5.0: '$80-$99',
+ 6.0: '$100-$199',
+ 7.0: '$200-$299',
+ 8.0: '$300-$399',
+ 9.0: '$400-$499',
+ 10.0: '$500-$599',
+ 11.0: '$600-$699',
+ 12.0: '$700-$799',
+ 13.0: '$800-$899',
+ 14.0: '$900-$999',
+ 15.0: '$1000-$2500',
+ 16.0: 'More than $2500'}
 
 rcParams['figure.figsize'] = 14/2.54, 10/2.54
 
@@ -181,8 +197,8 @@ for i,original_name in enumerate(['MATA','EXPA','TSA','Bills']):
         dfs=df[df['spent_on_' + original_name]==lb]
         num_value[j]=len(dfs)
         if len(dfs)>5:
-            mean_happy[j]=np.nanmean(dfs[happiness_measure])
-            std_happy[j]=np.nanstd(dfs[happiness_measure])/np.sqrt(len(dfs))
+            mean_happy[j]=np.nanmean(dfs['Happiness'])
+            std_happy[j]=np.nanstd(dfs['Happiness'])/np.sqrt(len(dfs))
             
     ax=axs[int(np.ceil(i/2))-1][np.remainder(i,2)]    
     
@@ -228,7 +244,7 @@ plt.show()
 # more rapid this increase is using linear 
 # regression, which measures the steepness of the increase for each factor.
 
-model_fit=smf.ols(formula=happiness_measure + ' ~  spent_on_MATA + spent_on_TSA + spent_on_EXPA + spent_on_Bills' , data=df).fit()
+model_fit=smf.ols(formula='Happiness' + ' ~  spent_on_MATA + spent_on_TSA + spent_on_EXPA + spent_on_Bills' , data=df).fit()
 print(model_fit.summary()) 
 
 print('For every $100 spent per month on time saving, %.2f points of happiness gained' % (100.0*model_fit.params['spent_on_TSA']))
@@ -257,7 +273,7 @@ for original_name in ['MATA','Bills','TSA','EXPA']:
     variable_of_interest='spent_on_' + original_name
     df[variable_of_interest + '_2']=df[variable_of_interest]**2
 
-model_fit=smf.ols(formula=happiness_measure + ' ~  spent_on_MATA + spent_on_TSA + spent_on_EXPA + spent_on_MATA_2 + spent_on_TSA_2 + spent_on_EXPA_2' , data=df).fit()
+model_fit=smf.ols(formula='Happiness' + ' ~  spent_on_MATA + spent_on_TSA + spent_on_EXPA + spent_on_MATA_2 + spent_on_TSA_2 + spent_on_EXPA_2' , data=df).fit()
 print(model_fit.summary()) 
 
 
@@ -292,8 +308,8 @@ for j,variable_of_interest in enumerate(['Prop_TS', 'Prop_EXP', 'Prop_MATA']):
     for i,lb in enumerate(scale_of_interest[:-1]):
         lbp1=scale_of_interest[i+1]
         dfs=df[np.logical_and(df[variable_of_interest]>=lb,df[variable_of_interest]<lbp1)]
-        mean_happy[i]=np.mean(dfs[happiness_measure])
-        std_happy[i]=np.std(dfs[happiness_measure])/np.sqrt(len(dfs))
+        mean_happy[i]=np.mean(dfs['Happiness'])
+        std_happy[i]=np.std(dfs['Happiness'])/np.sqrt(len(dfs))
         num_value[i]=len(dfs)
         
     ax.scatter(scale_of_interest[:-1], mean_happy,s=num_value)
@@ -360,16 +376,14 @@ print('The average person spend %.2f percent of their budget on material purchas
 # to make a material purchase. Below is a plot of what they bought on each 
 # occasion (material left, time-saving right) and the difference in 
 # happiness they reported each time.
+#
+# NEED TO LINK AND EXPLAIN FROM ORIGINAL STUDY.
+
 
 rcParams['figure.figsize'] = 16/2.54, 35/2.54
 fig,ax=plt.subplots(num=1)
 
 df=pd.read_csv("../data/happy_buy.csv",sep=';')
-
-np.sum(df['TP_BAL']-df['MAT_BAL']>0)
-np.sum(df['TP_PA']-df['MAT_PA']>0)
-np.sum(df['TP_NA']-df['MAT_NA']>0)
-np.sum(df['TP_TP']-df['MAT_TP']>0)
 
 df['DIFF_PA']=  df['TP_PA']-df['MAT_PA']
 df=df.sort_values('DIFF_PA')
