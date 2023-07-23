@@ -4,7 +4,23 @@
 The butterfly effect
 ====================
 
-FROM THE BOOK
+
+The differential equations proposed by Edward Lorenz and described in the book are
+
+.. math::
+
+      \frac{dX}{dt} &= s(Y-X) \\
+      \frac{dY}{dt} &= rX - Y - XZ \\
+      \frac{dZ}{dt} &= XY - bZ 
+
+In terms of weather on a tropical environment, we can think of these variables as 
+strength of breeze (:math:´X´), temperature difference 
+between currents (:math:´Y´)) and land/air temperature distortion (:math:´Z´).
+
+There are three parameter values, which are set to :math:´s=10´, :math:´r=28´ 
+and :math:´b=8/3´ to create the butterfly (th Lorenz attractor). 
+
+Let's first define a function which gives the derivatives at each point
 
 """
 
@@ -16,24 +32,6 @@ matplotlib.font_manager.FontProperties(family='Helvetica',size=11)
 
 from scipy import integrate
 from mpl_toolkits import mplot3d
-
-
-##############################################################################
-# The Lorenz equations
-# --------------------
-#
-# The differential equations propsed by Lorenz are
-#
-# .. math::
-#
-#       \\frac{dX}{dt} &= s(Y-X) \\
-#       \\frac{dY}{dt} &= rX - Y - XZ \\
-#       \\frac{dZ}{dt} &= XY - bZ 
-#    
-# There are three parameter values, which are set to $s=10$, $r=28$ 
-# and $b=8/3$ to create the butterfly (th Lorenz attractor). 
-#
-# Let's first define a function which gives the derivatives at each point
 
 def lorenz(XYZ,t=0):
     
@@ -51,7 +49,8 @@ r=28
 b=8/3
 
 ##############################################################################
-# Now we solve the equations numerically
+# Now we solve the equations numerically. By plotting them in three dimensions
+# we can see how the weather never repeats.
 
 endtime=300
 dt = 0.01 
@@ -69,31 +68,24 @@ ax.set_xticks(np.arange(-20,21,step=10))
 ax.set_yticks(np.arange(-20,21,step=10))
 ax.set_zticks(np.arange(0,40,step=10))
 ax.yaxis.labelpad=10
-#ax.plot( [mean1, mean1], [-1, 10], linestyle='dashed', color='black')
-#ax.text(-20,-20,50,'(a)') 
 ax.plot3D(XYZ[start:finish,0], XYZ[start:finish,1], XYZ[start:finish,2], lw=1,color='k')
 ax.set_xlabel("Strength of breeze ($X$)")
 ax.set_ylabel("Temperature difference \n between currents ($Y$)")
 ax.set_zlabel("Land/air temperature \n distortion ($Z$) ")
 
-# Get rid of colored axes planes
-# First remove fill
+# Format the axes
 ax.xaxis.pane.fill = False
 ax.yaxis.pane.fill = False
 ax.zaxis.pane.fill = False
-
-# Now set color to white (or whatever is "invisible")
 ax.xaxis.pane.set_edgecolor('w')
 ax.yaxis.pane.set_edgecolor('w')
 ax.zaxis.pane.set_edgecolor('w')
-
 ax.set_xlim(-21,21)
 ax.set_zlim(0,40) 
 ax.set_ylim(-21,21)
 
 
 plt.show()
-
 
 
 ##############################################################################

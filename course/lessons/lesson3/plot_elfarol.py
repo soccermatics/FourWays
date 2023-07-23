@@ -1,30 +1,31 @@
 """
 .. _doublingmap:
 
-El Farol
-========
+Chocolate cake of chaos
+=======================
+
+In the book, we look at two stories, Alex story about attendance at a bar and Richard's
+problems with chocolate cake over consumption. These are both captured by the same 
+mathematical model.
+
+.. image:: ../../images/lesson3/BarRichard.png
+
+In Alex story we take the attendance at the bar the previous week, :math:´x_t'
+double it. If :math:´2x_t \leq 50' then the number of visitors the next week is 
+
+.. math::
+  
+  x_{t+1} =2x_t
+
+On the other hand, if :math:´2x_t > 50' then the number of visitors next week is
+
+.. math::
+  
+  x_{t+1} = 2(100 - x_t)
+
+Let's implement this in Python 
+
 """
-
-import numpy as np
-
-##############################################################################
-# Alex story
-# ---------------
-#
-# In Alex story we take the attendance at the bar the previous week, :math:´x_t'
-# double it. If ´2x_t \leq 50' then the number of visitors the next week is 
-#
-# .. math::
-#   
-#   x_{t+1} =2x_t
-#
-# On the other hand, if :math:´2x_t > 50' then the number of visitors next week is
-#
-# .. math::
-#   
-#   x_{t+1} = 2(100 - x_t)
-# 
-# Let's implement this in Python 
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -61,7 +62,8 @@ print(tentmap(x0,11))
 # Chocolate cake
 # --------------
 #
-# In Richard chocolate cake story we 
+# In Richard chocolate cake story we look at the difference between starting with
+# 13 and 14. This can be simulated as follows.
 # 
 
 
@@ -73,7 +75,8 @@ print(tentmap(14,7))
 
 ##############################################################################
 #
-# Let's make the difference only 0.1
+# Let's make the difference only 0.1, as we do in the figure in the book
+# and see what happens.
 # 
 
 def formatFigure(ax,n):
@@ -99,6 +102,7 @@ plt.show()
 #
 # And now let's make the difference only 0.001
 #
+
 n=30
 
 fig,ax=plt.subplots(num=1)
@@ -108,12 +112,11 @@ formatFigure(ax,n)
 plt.show()
 
 
-
-
 ##############################################################################
 # Cobweb diagrams
 # --------------
 #
+# HAVE MATERIAL HERE.
 
 n = 50 
 
