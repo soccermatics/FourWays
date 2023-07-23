@@ -4,42 +4,49 @@
 More than the sum of its parts
 ==============================
 
-FROM BOOK
+In the book, Madeliene and I formulate a model for how ants forage for food and come up 
+with rules of interaction,
+
+.. image:: ../../images/lesson2/AntsMoreThanSum.png 
+
+Let's turn these rules in to differential equation and investigate properties of the model.
 
 The model
 ---------
  
-In terms of differential equations, the rate of change of susceptible individuals is
+In terms of differential equations, the rate of change of 'looking' for food individuals is
 
 .. math::
    :label: susc
  
    \\frac{dL}{dt} = \\underbrace{-b L F^2 }_{\mbox{L} + \mbox{2F} \\xrightarrow{b} \mbox{3F}}
 
-and the rate of change of infectives is 
+and the rate of change of those who have 'found' the food is 
 
 .. math::
    :label: infect
  
    \\frac{dF}{dt} = \\underbrace{-b L F^2 }_{\mbox{L} + \mbox{2F} \\xrightarrow{b} \mbox{3F}} - \\underbrace{c F }_{\mbox{F} \\xrightarrow{c} \mbox{R}} 
 
-The constant :math:`b` is the rate of contact between people and :math:`c` is the rate of recovery.
-We can also write down an equation for recovery as follows,
+The constant :math:`b` is the rate of contact between ants and :math:`c` is the rate of retiring.
+We can also write down an equation for resting ants as follows,
 
 .. math::
    :label: recover
  
    \\frac{dR}{dt} = \\underbrace{c F }_{\mbox{F} \\xrightarrow{c} \mbox{R}} 
 
-In this model :math:`L`, :math:`F` and :math:`R` are proportions of the population. Summing them up gives :math:`L+F+R=1`, since 
+In this model :math:`L`, :math:`F` and :math:`R` are proportions of the population. 
+Summing them up gives :math:`L+F+R=1`, since 
 everyone in the popultaion is either susceptible, infective or recovered.
 
-Let's now solve these equations numerically. We start by importing the libraries we need from Python.
+Numerical solution
+------------------
 
-
+Let's now solve these equations numerically. We start by importing the libraries we need from Python, input the equations
+and then solve them numerically.
 
 """
-
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -78,26 +85,28 @@ plotOverTime(ax,F,'-')
 plt.show()
 
 ##############################################################################
+# Phase plane
+# -----------
 # We can find
 # the equilibria where the rate at which people become infected equals the 
 # rate at which they recover by solving
 # 
 # .. math::
 # 
-#   \frac{dI}{dt} = b S I^2 - c I = 0  
+#   \frac{dF}{dt} = b L F^2 - c F = 0  
 #
-# This occurs either when :math:`I=0` (no ants have found the food) or 
+# This occurs either when :math:`F=0` (no ants have found the food) or 
 # when 
 #
 # .. math::
 # 
-#   S = \frac{c}{bI} 
+#   F = \frac{c}{bL} 
 # 
-
+# We now plot this below.
 
 def plotPhasePlane(ax,L,F,linetype):
     ax.plot(L, F, linetype,color='k')
-    ax.set_xlabel('Looking: S')
+    ax.set_xlabel('Looking: L')
     ax.set_ylabel('Found Food: F')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -127,9 +136,6 @@ ax[1].plot(L_equilibrium,F_equilibrium,linestyle=':',color='k')
 plotPhasePlane(ax[1],L,F,'-')
 drawArrows(ax[1],dXdt)
 plt.show()
-
-
-
 
 ##############################################################################
 # Now lets make b smaller
@@ -205,7 +211,6 @@ L_equilibrium = c/(b*F_equilibrium)
 ax[1].plot(L_equilibrium,F_equilibrium,linestyle=':',color='k')
 drawArrows(ax[1],dXdt)
  
-
 plt.show()
 
 

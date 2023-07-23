@@ -2,12 +2,13 @@
 The art of a good argument
 ==========================
 
-Here we...
-
-
-The way we determine whether Charlie will start shouting is using 
+In the book, I describe the way Charlie and Aisha interact in terms of a model. 
+We determine whether Charlie will start shouting is using 
 the following table.
 
+.. image:: ../../images/lesson2/GoodArgument.png
+
+We now set up these rules as a computer simulation and look at how the two interact.
 
 """
 
@@ -24,15 +25,15 @@ Aisha_rules = pd.DataFrame(data= Aisha_shout,index=['Aisha calm', 'Aisha shoutin
 print('Probability of Aisha shouting:')
 print(Aisha_rules)
 
-###################################################################
-#
 # Initially, neither of them are shouting
-
-#Number of time steps
-T = 25
 
 Charlie=[0]
 Aisha=[0]
+
+# Number of time steps
+T = 25
+
+
 
 
 
@@ -71,8 +72,9 @@ Aisha,Charlie = argument(T,Charlie_rules,Aisha_rules)
         
 ###################################################################
 #
-# We can also represent the steps in the environment as a binary string.
+# We can represent the argument as a binary string, as we do in the book.
 #
+
 print("Charlie's shouting as a string of zeros (clam) and ones (shouting):")
 print(' '.join(map(str, Charlie)))
 print("Aisha's shouting as a string of zeros (clam) and ones (shouting):")
@@ -81,13 +83,16 @@ print(' '.join(map(str, Aisha)))
 
 ###################################################################
 #
-# WNow we can make them argue lots of times!
+# Now we can make them argue lots of times!
 #
 
 for j in range(5):
     
+    # Both start calm.
     Charlie=[0]
     Aisha=[0]
+
+    # Call the argument function
     print('Argument %d' % (j+1))
     print('----------')
     Aisha,Charlie = argument(T,Charlie_rules,Aisha_rules,0)
@@ -101,7 +106,9 @@ for j in range(5):
 
 ###################################################################
 #
-# Let's update Charlie's rules.
+# Charlie decides to update his rules
+#
+# .. image:: ../../images/lesson2/CharlieUpdate.png
 #
 
 Charlie_shout =np.array([[0.1, 0.1],[0.1,0.95]])
@@ -112,7 +119,7 @@ print(Charlie_rules)
 
 ###################################################################
 #
-# Now let's look at five arguments
+# Now let's look at five arguments under his new rules.
 #
 
 
@@ -130,4 +137,15 @@ for j in range(5):
     print('\n')
 
 
+###################################################################
+#
+# Now Charlie shouts less and (as a result) so to does Aisha.
+#
 
+
+##############################################################################
+#
+# Integrative Behavioural Couple Therapy (IBCT)
+# ---------------------------------------------
+#
+# Details here.

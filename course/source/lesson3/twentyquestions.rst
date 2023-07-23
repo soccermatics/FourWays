@@ -1,5 +1,8 @@
 
+.. _twentyquestions:
 
+Twenty questions
+================
 
 
 Multiplying numbers by themselves makes them very large,

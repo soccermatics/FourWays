@@ -4,6 +4,9 @@
    :align: center
 
 
+**Work In Progress: This page will be finished for the book release in the last week 
+of August 2023**
+
 This is the companion website to David Sumpter's book 
 `Four Ways of Thinking <https://www.penguin.co.uk/books/321012/four-ways-of-thinking-by-sumpter-david/9780241604069>`_.
 These pages allow you to get deeper in to the mathematics presented 
@@ -74,6 +77,7 @@ Contents
    gallery/lesson3/plot_thebutterflyeffect
    gallery/lesson3/plot_cellularchaos
    gallery/lesson3/plot_informationequalsrandomness
+   lesson3/twentyquestions.rst
 
 .. image:: images/Hat3.png
    :width: 200

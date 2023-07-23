@@ -4,9 +4,12 @@
 Rabbits and foxes
 =================
 
-In this section we will learn how to write `differential equations <https://www.khanacademy.org/math/differential-equations>`_
- models to show the rate of change of populatins of predators and prey. We will simulate the model using Python. Then we draw the phase plane 
-for the model, just as Parker does in the book. 
+In this section we will learn how to write `differential equations <https://www.khanacademy.org/math/differential-equations>`_ 
+models to show the rate of change of populatins of predators and prey. We will simulate the model using Python. Then we draw the phase plane 
+for the model, just as Parker does in the book in the image shown below. 
+
+.. image:: ../../images/lesson2/ParkerCircles.png
+
 
 Differential equations
 ----------------------
@@ -49,8 +52,9 @@ and the bottom part, :math:`dt`, denotes the change in time, :math:`t`.
 Differentiation in school
 -------------------------
 
-I remeber that after learning about differentiation in school, I found this type of bit strange 
-the first time I encountered it. In school we might have a function that looks like, for example,
+This section is somewhat of an aside, but it might be useful if you have studied 
+differentiation before. I remember that after learning about differentiation in school, I found the form of differential equations above
+to be a bit strange when I firstencountered it. In school we might have a function that looks like, for example,
 
 .. math::
    :label: timeint
@@ -67,11 +71,13 @@ then take the derivative to get
 
 This is also a differential equation. It says that the rate of change of :math:`R` over time
 is proportional to time. The difference between equation :eq:`timegrow` and 
-:eq:`rabbitgrow` is that the former says that rabbits grow proportionally to time, while
-the latter says that rabbits grow proportionally to the number of rabbits. In the case that
+:eq:`rabbitgrow` is that :eq:`timegrow` says that rabbits grow proportionally to time, while
+:eq:`rabbitgrow` says that rabbits grow proportionally to the number of rabbits. 
+
+In the case that
 rabbits grow in proportion to time, then we say that :eq:`timeint` is the solution to 
 equation :eq:`timegrow` since it tells us how many rabbits there 
-will be at any point in time. 
+will be at any point in time. As yet, we haven't found a solution to equation :eq:`rabbitgrow`.
 
 I think this is where differential equations can be a bit confusing, 
 because in school we are usually given :eq:`timeint` and asked to find :eq:`timegrow`. 

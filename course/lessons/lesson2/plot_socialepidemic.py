@@ -181,25 +181,23 @@ plt.show()
 #
 # In terms of differential equations, the rate of change of susceptible individuals 
 # remains the same as before
-# .. math::
-#    :label: susc
 #
-#    \\frac{dS}{dt} = \\underbrace{-b S I }_{\mbox{I} + \mbox{S} \\xrightarrow{b} 2 \mbox{I}}
+# .. math::
+#
+#    \frac{dS}{dt} = \underbrace{-b S I }_{\mbox{I} + \mbox{S} \xrightarrow{b} 2 \mbox{I}}
 #
 # but the rate of change of infectives is now
 #
 # .. math::
-#    :label: infect
 # 
-#    \\frac{dI}{dt} = \\underbrace{b S I }_{\mbox{I} + \mbox{S} \\xrightarrow{b} 2 \mbox{I}} - \\underbrace{c I }_{\mbox{I} \\xrightarrow{c} \mbox{R}} - \\underbrace{d I R }_{\mbox{I} + \mbox{R}  \\xrightarrow{d} 2 \mbox{R}} 
+#    \frac{dI}{dt} = \underbrace{b S I }_{\mbox{I} + \mbox{S} \xrightarrow{b} 2 \mbox{I}} - \underbrace{c I }_{\mbox{I} \xrightarrow{c} \mbox{R}} - \underbrace{d I R }_{\mbox{I} + \mbox{R}  \xrightarrow{d} 2 \mbox{R}} 
 #
 # The constant :math:`b` is the rate of contact between people and :math:`c` is the rate of contact between infectives and recovered individuals.
 # We can also write down an equation for recovery as follows,
 #
 # .. math::
-#    :label: recover
 # 
-#    \\frac{dR}{dt} = \\underbrace{c I }_{\mbox{I} \\xrightarrow{c} \mbox{R}} + \\underbrace{d I R }_{\mbox{I} + \mbox{R}  \\xrightarrow{d} 2 \mbox{R}} 
+#    \frac{dR}{dt} = \underbrace{c I }_{\mbox{I} \xrightarrow{c} \mbox{R}} + \underbrace{d I R }_{\mbox{I} + \mbox{R}  \xrightarrow{d} 2 \mbox{R}} 
 #
 # In Python these equations are written as follows.
 
@@ -230,7 +228,7 @@ plt.show()
 # 
 # .. math::
 # 
-#    \\frac{dI}{dt} = b S I - c I - d I (1- S -I) =0  
+#    \frac{dI}{dt} = b S I - c I - d I (1- S -I) =0  
 #
 # This occurs either when :math:`I=0` (no-one has the disease) or 
 #
@@ -250,7 +248,7 @@ plt.show()
 # or
 # .. math::
 # 
-#    S = \\frac{c+d}{b+d} - \\frac{d}{b+d} I
+#    S = \frac{c+d}{b+d} - \frac{d}{b+d} I
 #
 # We can now plot these equilibrium on the phase plane
 # 
