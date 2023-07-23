@@ -139,7 +139,7 @@ plt.show()
 
 
 ##############################################################################
-# Now make a map of maxima from one time to the next
+# Now make a map of maxima from one time to the next.
 
 rcParams['figure.figsize'] = 4/2.54, 4/2.54
 fig,ax=plt.subplots(num=1)

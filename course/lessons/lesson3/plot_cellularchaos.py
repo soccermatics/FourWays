@@ -4,10 +4,23 @@
 Cellular chaos
 ==============
 
+In Santa Fe, Esther shows how to write rule tables for cellular automata.
+
+.. image:: ../../images/lesson3/EstherRules.png
+
+The figure below shows how these rules result in a chequerboard pattern.
+
+.. image:: ../../images/lesson3/EstherRules.png
+
+The top of the figure shows the rules, then the pattern underneath is each time step 
+of the cellular automata. 
+
+On this page we will implement a cellular automata that takes in a set of rules and 
+outputs a pattern.
+
 """
 
 import numpy as np
-
 
 def generate_ca(rule, steps, input_string='', size=50,print_output=1):
     # Initialize the list of cells with a single "on" cell in the middle
@@ -22,7 +35,7 @@ def generate_ca(rule, steps, input_string='', size=50,print_output=1):
     middle_column=[cells[size // 2]]
     
     
-    # Create a dictionary for mapping inputs to outpute 
+    # Create a dictionary for mapping inputs to outputs 
     patterns = {
         (1, 1, 1): rule[0],
         (1, 1, 0): rule[1],
@@ -68,8 +81,11 @@ def generate_ca(rule, steps, input_string='', size=50,print_output=1):
     return middle_string
 
 ##############################################################################
-# We can rewrite Esther's rule in the form of the outputs it produces for 
-# a particular output.
+# We can write Esther's rule in the form of the outputs it produces for 
+# a particular input. So '1' when the input is '111', '0' when the input is '110' and
+# so on.
+# 
+# We then run the rule for 30 steps for a single black cell, with all other cells white.
 
 rule = [1, 0, 1, 1, 0, 0, 1, 0] 
 size = 50
@@ -79,7 +95,11 @@ generate_ca(rule, steps,size=size,print_output=1)
 
 
 ##############################################################################
-# The fractal generating rule is
+# In Santa Fe, David finds the following rules, which make a fractal like pattern.
+# 
+# .. image:: ../../images/lesson3/DavidFractal.png
+#
+# Let's simulate this rule and we chould get the same pattern.
 
 rule = [0, 0, 0, 1, 0, 1, 1, 0] 
 size = 50
@@ -88,7 +108,13 @@ steps = 30
 generate_ca(rule, steps,size=size,print_output=1)
 
 ##############################################################################
-# The random rule is
+# The random rule which David discovers is illustrated below.
+#
+# .. image:: ../../images/lesson3/DavidRandom.png
+# 
+# Let's simulate this now. We use this function to calculate the middle
+# column. The middle string printed below is the column starting at 
+# the single 1 in the middle and then going down from there.
 
 rule = [0, 0, 0, 1, 1, 1, 1, 0] 
 size = 50
@@ -103,7 +129,8 @@ print('The middle string is: ' + middle_string)
 # Random number generators
 # ------------------------
 #
-# First we run the cellular automata for 20 steps 
+# The method to generate random numbers from the cellular automata is
+# to first run a size 20 cellular automata for 20 steps....
 
 rule = [0, 0, 0, 1, 1, 1, 1, 0] 
 size = 20
@@ -116,7 +143,7 @@ print('The middle string is: ' + middle_string)
 
 
 ##############################################################################
-# Convert to decimal number
+# We can then convert the output number to a decimal.
 
 def string_to_decimal(string):
 
@@ -130,10 +157,10 @@ decimal=string_to_decimal(middle_string)
 print('In decimal form this is: %f\n'%decimal)
 
 
-
 ##############################################################################
 # 
-# Then we rerun it with the middle string as input
+# We then rerun the cellular automata with the middle string as input for 
+# the first row of the cellular automata to get a new middle string.
 #
 
 middle_string = generate_ca(rule, steps, input_string=middle_string,print_output=1)
@@ -146,7 +173,7 @@ print('In decimal form this is: %f\n'%decimal)
 
 ##############################################################################
 # 
-# And again
+# And then we do the same thing again
 #
 
 middle_string = generate_ca(rule, steps, input_string=middle_string,print_output=1)
@@ -159,7 +186,10 @@ print('In decimal form this is: %f\n'%decimal)
 
 ##############################################################################
 # 
-# Now lets repeat this without printing out the whole cellular automata
+# Now lets repeat this without printing out the whole cellular automata,
+# just collecting up the output numbers in a list. 
+#
+# These numbers are random.
 #
 
 random_decimals=[]
@@ -175,7 +205,8 @@ print(random_decimals)
 
 ##############################################################################
 # 
-# Lets make these in to a graph over time
+# To see this more clearly, lets make these in to a graph over time
+# of the output numbers.
 #
 
 import matplotlib.pyplot as plt
@@ -202,7 +233,7 @@ plt.show()
 
 ##############################################################################
 # 
-# Lets make histograms
+# And finally let's make histograms. First for the 100 times we have just run.
 #
 
 rcParams['figure.figsize'] = 12/2.54, 9/2.54
@@ -228,7 +259,7 @@ plt.show()
 
 ##############################################################################
 # 
-# And now lets repeat it 2000 times.
+# And now lets repeat it 2000 times. 
 #
 
 random_decimals=[]
@@ -245,3 +276,13 @@ formatHist(ax,N)
 plt.show()
 
 
+
+##############################################################################
+# 
+# This is a uniform random distribtion of numbers, i.e. all outputs between
+# 0 and 1 are equally likely.
+#
+# Further reading
+# ---------------
+#
+# ADD REFENCES HERE.
