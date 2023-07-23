@@ -5,18 +5,31 @@ The butterfly effect
 ====================
 
 
-The differential equations proposed by Edward Lorenz and described in the book are
+The three differential equations proposed by Edward Lorenz and described in the book are as follows.
+In terms of weather on a tropical island, we can think of the variables as 
+strength of breeze (:math:´X´), which increases with :math:´Y´ 
+but decreases as a function of itself
 
 .. math::
 
-      \frac{dX}{dt} &= s(Y-X) \\
-      \frac{dY}{dt} &= rX - Y - XZ \\
-      \frac{dZ}{dt} &= XY - bZ 
+    \\frac{dX}{dt} = s(Y-X)
 
-In terms of weather on a tropical environment, we can think of these variables as 
-strength of breeze (:math:´X´), temperature difference 
-between currents (:math:´Y´)) and land/air temperature distortion (:math:´Z´).
+Temperature difference between currents (:math:´Y´)) which increases with 
+:math:´X´ but decreases as a function of itself and of :math:´Z´,
 
+.. math::
+
+    \\frac{dY}{dt} = rX - Y - XZ 
+
+
+And land/air temperature distortion (:math:´Z´) which increases with :math:´X´ but decreases 
+as a function of itself,
+
+.. math::
+
+    \\frac{dZ}{dt} = XY - bZ 
+
+  
 There are three parameter values, which are set to :math:´s=10´, :math:´r=28´ 
 and :math:´b=8/3´ to create the butterfly (th Lorenz attractor). 
 
