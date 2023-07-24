@@ -115,8 +115,6 @@ ax.plot(XYZ[start:finish,0], color='black')
 ax.plot(XYZ[start:finish,1], color='green')
 ax.plot(XYZ[start:finish,2], color='red')
 plt.show()
-fig.savefig('lorenz_z.pdf', dpi=None, bbox_inches="tight")
-
 
 from scipy.signal import argrelextrema
 
@@ -134,7 +132,6 @@ zm=zm[maxz]
 zm=zm[20:]
 fig,ax=plt.subplots(num=1)
 ax.plot(np.arange(len(zm)),zm, color='black')
-fig.savefig('lorenz_max.pdf', dpi=None, bbox_inches="tight")
 
 matplotlib.font_manager.FontProperties(family='Helvetica',size=11)
 
@@ -166,6 +163,5 @@ ax.set_xticks(np.arange(20,51,step=10))
 ax.set_yticks(np.arange(20,51,step=10))
 ax.set_xlim(27,52)
 ax.set_ylim(27,52) 
-fig.savefig('lorenz_map.pdf', dpi=None, bbox_inches="tight")
 
 

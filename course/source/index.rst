@@ -76,9 +76,7 @@ Contents
    gallery/lesson3/plot_elfarol
    gallery/lesson3/plot_thebutterflyeffect
    gallery/lesson3/plot_cellularchaos
-   gallery/lesson3/plot_informationequalsrandomness
-   lesson3/twentyquestions.rst
-
+   
 .. image:: images/Hat3.png
    :width: 200
    :align: center

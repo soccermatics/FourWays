@@ -148,4 +148,5 @@ for j in range(5):
 # Integrative Behavioural Couple Therapy (IBCT)
 # ---------------------------------------------
 #
-# Details here.
+# `Andrew Christensen and Brian D. Doss, ‘Integrative behavioral couple therapy’, 
+# Current Opinion in Psychology 13 (2017): 111‒14. <https://www.sciencedirect.com/science/article/pii/S2352250X1630046X?casa_token=aXp8NydeJ_UAAAAA:JEIj5f7kLOoqJqDy-fd6MG73WMNOi8L9_Vel8AtIQ1ZUEYQ7_lVl5GjEpKoADYsFl8KS3628>`_

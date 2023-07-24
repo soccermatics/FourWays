@@ -41,7 +41,8 @@ rcParams['figure.figsize'] = 12/2.54, 12/2.54
 # Find people who spent more than 200 dollars in total 
 # These are the people we will look at in this study.
 
-
+# The data file we use here is a adapted from the data from here https://osf.io/vr9pa/
+# Study 7 US Qualtrics data.
 df=pd.read_csv('../data/spending.csv')  
 
 morethan200=df['spent_on_MATA']+df['spent_on_TSA']+df['spent_on_EXPA'] >200
@@ -383,6 +384,10 @@ print('The average person spend %.2f percent of their budget on material purchas
 rcParams['figure.figsize'] = 16/2.54, 35/2.54
 fig,ax=plt.subplots(num=1)
 
+
+
+# The data file we use here is a adapted from the data from here https://osf.io/vr9pa/
+# Study 8 Field Study data.
 df=pd.read_csv("../data/happy_buy.csv",sep=';')
 
 df['DIFF_PA']=  df['TP_PA']-df['MAT_PA']

@@ -59,7 +59,7 @@ to be a bit strange when I firstencountered it. In school we might have a functi
 .. math::
    :label: timeint
 
-   R(t) =  a t^2
+   X(t) =  b t^2
 
 
 then take the derivative to get 
@@ -67,11 +67,11 @@ then take the derivative to get
 .. math::
    :label: timegrow
  
-   \\frac{dR}{dt} = 2 a t
+   \\frac{dX}{dt} = 2 b t
 
-This is also a differential equation. It says that the rate of change of :math:`R` over time
+This is also a differential equation. It says that the rate of change of :math:`X` over time
 is proportional to time. The difference between equation :eq:`timegrow` and 
-:eq:`rabbitgrow` is that :eq:`timegrow` says that rabbits grow proportionally to time, while
+:eq:`rabbitgrow` is that :eq:`timegrow` says that rabbits grow in proportion to time, while
 :eq:`rabbitgrow` says that rabbits grow proportionally to the number of rabbits. 
 
 In the case that
@@ -84,11 +84,31 @@ because in school we are usually given :eq:`timeint` and asked to find :eq:`time
 For most differential equations it is the other way round. We are given equation :eq:`rabbitgrow` 
 and asked to find the the number of rabbits :math:`R` as a function of time. 
 
+The solution to equation :eq:`timegrow` is in fact,
+
+.. math::
+   :label: expint
+
+   R(t) =  \exp(at)
+
+assuming that :math:`R(0)=1` 
+(see `here <https://www.khanacademy.org/math/differential-equations/first-order-differential-equations/exponential-models-diff-eq/v/modeling-population-with-simple-differential-equation>`_ for an explanation
+of how we get this solution). 
+
+In both these cases, we can find an explicit solution for :math:`R(t)` in terms of :math:`t`. By explicit here
+I mean that if you tell me a value of :math:`t`, I can put it in to :eq:`expint` and tell you the number of 
+rabbits. It is not always the case that we can find an explicit solution. 
+Indeed, for most differential equation models we can't find solutions of this form. 
+This is the case for the rabbits and foxes model which we now look at. We won't be able to 
+find an explicit mathematical expression for rabbits and foxes at any time, but we can understand 
+the dynamics of rabbits and foxes.
+
+
 Back to rabbits anf foxes
 -------------------------
 
-We have an equation for growth of rabbits, now we need to have equations that include foxes. In chemical 
-reaction form these are,
+We have an equation for growth of rabbits, now we need to have equations that include foxes. 
+In chemical reaction form these are,
 
 .. math::
 
@@ -299,8 +319,51 @@ plotPhasePlane(ax,R,F)
 
 
 ##############################################################################
+# Describing the cycle
+# --------------------
 #
-# Learn more
-# ----------
+# Although we can't find an explicit solution to the 
+# Lotka-Voltera model in terms of time, we can use a trick that Lotka 
+# described in an article he wrote in `1920 <https://www.pnas.org/doi/full/10.1073/pnas.6.7.410to>`. 
+# By dividing the rabbit equation by the fox equation he got 
 #
-# HERE AND IN OTHER SECTIONS WE SHOULD ADD REFERENCES.
+# .. math::
+# 
+#    \frac{dR}{dF} = \frac{aR -bRF}{cRF - d F}  
+#
+# We can then rearrange this equation to get 
+# 
+# .. math::
+# 
+#    \left(c -d/R \right) dR = \left(a/F -b \right) dF 
+# 
+# Integrating both sides of this equation we get 
+#
+# .. math::
+# 
+#    cR -d\log(R) = a \log(F) - b F + C
+# 
+# where :math:`C`  is the constant of integration. This last equation tells us a relationship that 
+# must always hold between rabbits and foxes. To understand what the relationship implies, 
+# imagine  the equation above was simply :math:`Y+X=C`  instead. This would imply the total number of 
+# rabbits and foxes is equal to C=10. So, if :math:`C=10` then we could have :math:`Y=3` foxes and :math:`X=7` 
+# rabbits (because 3+7=10), 
+# or 6 foxes and 4 rabbits (because 6+4=10), but we couldn’t have :math:`Y=6` foxes and :math:`X=7` rabbits (because 6+7≠10). 
+# In our case, the relationship in the equation is more complicated, involving logarithms, 
+# but the idea is the same: for any particular value of C 
+# all values of :math:`R` and :math:`F` must obey the equation
+#
+# .. math::
+# 
+#    C = cR + b F -d\log(R) - a \log(F) 
+# 
+# This is the case for the cycle we created in our numerical solution above. Every point on
+# the predator-prey cycle fulfills the condition above.
+#
+# Here is how Lotka presented his result in the `original article <https://www.pnas.org/doi/full/10.1073/pnas.6.7.410to>`_.
+#
+# .. image:: ../../images/lesson2/LotkaCurve.png
+#
+# While Lotka didn't have a computer to simulate the equations, he could see 
+# using this argument that the cycles would remain finite. Neither the
+# prey or predator populations would increase without bound.

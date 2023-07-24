@@ -272,8 +272,29 @@ plt.show()
 
 ##############################################################################
 #
-# Real world examples
-# -------------------
+# Examples of social epidemics
+# ----------------------------
 #
-# Applause
-# Other examples
+# The following references describe social contagion using models similar to the one we 
+# have seen in this section to explain donations, laughter, applause, dog breeds, smoking, alchohol usage
+# and even divorce.
+#
+# `Frank Schweitzer and Robert Mach, ‘The epidemics of donations: logistic growth
+# and power-laws’, PLoS One 3, no. 1 (2008): e1458 <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0001458>`_
+#
+# `Sarah Seewoester Cain, ‘When laughter fades: individual participation during open-mic comedy performances’, PhD dissertation, Rice Univer- sity, 2018 <https://scholarship.rice.edu/bitstream/handle/1911/105806/CAIN-DOCUMENT-2018.pdf?sequence=1>`_
+#
+# `Richard P. Mann et al., ‘The dynamics of audience applause’, Journal of the Royal Society Interface 10, no. 85 (2013): 20130466 <https://royalsocietypublishing.org/doi/full/10.1098/rsif.2013.0466>`_
+# 
+# `Harold Herzog, ‘Forty-two thousand and one Dalmatians: fads, social contagion, and dog breed popularity’, Society and Animals 14, no. 4 (2006): 383‒97 <https://brill.com/downloadpdf/journals/soan/14/4/article-p383_3.pdf?casa_token=C2H6lT2hut4AAAAA:qyexw8uGG1Iip3pXxKQoBp5CFLP3AGnkh0W95xiRbKB7aOkcJiTITcvDWPWJdbKvAgc2i74>`_
+# 
+# `Nicholas A. Christakis, and James H. Fowler, ‘Social contagion theory: examining dynamic social networks and human behavior’, Statistics in Medicine 32, no. 4 (2013): 556‒77 <https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=0e249d965290fc3c6dd0cf264a002946d7e10dea>`_
+#
+# `Yvonne Aberg, ‘The contagiousness of divorce’, The Oxford Handbook of Analytical Sociology (2009): 342‒64 <https://academic.oup.com/edited-volume/38173/chapter-abstract/333033850?redirectedFrom=fulltext>`_
+#
+# .. admonition:: Think yourself!
+#   
+#     What aspects of your interactions with others do you think are dominated by social contagion?
+#     Write a short list and think back to it next time you find yourself caught up in the crowd.
+#     Social contagion can be a force for both good and bad.  
+ 
