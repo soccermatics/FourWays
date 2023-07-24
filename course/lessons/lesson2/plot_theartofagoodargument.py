@@ -8,7 +8,12 @@ the following table.
 
 .. image:: ../../images/lesson2/GoodArgument.png
 
-We now set up these rules as a computer simulation and look at how the two interact.
+On this page we implement the model in Python. 
+
+Setting up rules
+----------------
+
+We start by setting up these rules.
 
 """
 
@@ -33,14 +38,12 @@ Aisha=[0]
 # Number of time steps
 T = 25
 
-
-
-
-
-
 ###################################################################
+# Simulating arguments
+# --------------------
 #
-# Now we loop over 25 steps of discussion according to the rules above. 
+# We now set up a computer simulation and look at how the two interact.
+# To do this, we loop over 25 steps of discussion according to the rules above. 
 #
 
 
@@ -104,7 +107,11 @@ for j in range(5):
 
 
 
-###################################################################
+
+##############################################################################
+#
+# Charlie makes a change
+# ----------------------
 #
 # Charlie decides to update his rules
 #
@@ -140,13 +147,28 @@ for j in range(5):
 ###################################################################
 #
 # Now Charlie shouts less and (as a result) so to does Aisha.
-#
+# 
+# .. admonition:: Try yourself!
+#   
+#       Download the code and run it yourself in a Python notebook. Adjust the probabilities
+#       so that Aisha adopts the same rules as Charlie. Notice how much less they argue with
+#       one another!
 
 
 ##############################################################################
 #
-# Integrative Behavioural Couple Therapy (IBCT)
-# ---------------------------------------------
+# Integrative behavioural couple therapy
+# --------------------------------------
 #
-# `Andrew Christensen and Brian D. Doss, ‘Integrative behavioral couple therapy’, 
+# An introduction to integrative behavioural couple therapy (IBCT) can be watched below:
+#
+#  ..  youtube:: 8jidWO_Q8Do
+#   :width: 640
+#   :height: 349
+#
+# The model described in this section is inspired by this approach.
+#
+# To learn more about this approach see:
+# 
+# `Andrew Christensen and Brian D. Doss, Integrative behavioral couple therapy, 
 # Current Opinion in Psychology 13 (2017): 111‒14. <https://www.sciencedirect.com/science/article/pii/S2352250X1630046X?casa_token=aXp8NydeJ_UAAAAA:JEIj5f7kLOoqJqDy-fd6MG73WMNOi8L9_Vel8AtIQ1ZUEYQ7_lVl5GjEpKoADYsFl8KS3628>`_

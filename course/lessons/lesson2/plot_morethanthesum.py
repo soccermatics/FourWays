@@ -9,6 +9,9 @@ with rules of interaction,
 
 .. image:: ../../images/lesson2/AntsMoreThanSum.png 
 
+This section was inspired by an article I wrote together with Madeleine Beekman. 
+
+
 Let's turn these rules in to differential equation and investigate properties of the model.
 
 The model

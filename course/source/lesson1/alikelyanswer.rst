@@ -282,7 +282,7 @@ said was the maximum likelihood estimate of the proportion of people who
 like gerkhins. If we find the value of :math:`p` which maximises the
 log-likelihood, we also find the value that maximises the likelihood.
 
-The Maximum Likelihood
+Maximum likelihood
 ----------------------
 
 Let’s now prove that :math:`p=0.4` is the maximum likelihood. Up to now
