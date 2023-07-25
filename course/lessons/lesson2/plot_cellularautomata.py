@@ -2,6 +2,9 @@
 Cellular automata
 =================
 
+There are several 
+
+
 In this section we run some of the cellular automata rules from the book using Python code. 
 Download the code and run it yourself to investigate how these models work.
 

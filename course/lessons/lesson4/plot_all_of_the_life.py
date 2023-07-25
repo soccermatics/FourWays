@@ -2,6 +2,49 @@
 All of the life
 ===============
 
+The Game of Life was first introduced by `John Conway <http://scholarpedia.org/article/Game_of_Life>`_. 
+The rules are, as I describe in the book,
+
+.. image:: ../../images/lesson4/GameOfLifeRules.png
+
+These simple rules produce a rich variety of patterns. Let's start with a tour of some of these on Youtube.
+First, here is an intro to how the rules work.
+
+..  youtube:: CouipbDkwHWA
+   :width: 640
+   :height: 349
+
+You can play around yourself with Game of Life using `https://playgameoflife.com <https://playgameoflife.com>`_.
+
+An illustration (starting from a glider) of the types of patterns Game of Life can produce.
+
+..  youtube:: C2vgICfQawE
+   :width: 640
+   :height: 349
+
+|
+
+A great documentary on building a computer using Game of Life.
+
+..  youtube:: Kk2MH9O4pXY
+   :width: 640
+   :height: 349
+
+|  
+
+This one blows my mind every time I watch it.
+
+..  youtube:: xP5-iIeKXE8
+   :width: 640
+   :height: 349
+
+|
+
+
+Life in Python
+--------------
+
+In this section we are going to code the Game of Life in Python. First we set up functions which allow us to run sellular automata.
 
 """
 
@@ -11,10 +54,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pylab import rcParams
 rcParams['figure.figsize'] = 12/2.54, 2/2.54
-
-##############################################################################
-#
-# First we set up functions which allow us to run sellular automata.
 
 def show_grid(ax,grid,make_animation):
         if make_animation:
@@ -33,7 +72,7 @@ def show_grid(ax,grid,make_animation):
         
         return frame
 	
-def iterate(grid):
+def iterate(grid,new_value):
     N=np.size(grid,1)
     new_grid = np.zeros((N, N), dtype="int")
     for i in range(N):
@@ -51,6 +90,8 @@ def iterate(grid):
 
 def new_value(i, j,grid):
 	
+    # This identifies the neighbours, accounting for those 
+    # that might be over the edge of the screen. The screen wraps round.
     neighbours = grid[i, (j-1)%N] + grid[i, (j+1)%N] + grid[(i-1)%N, j] + grid[(i+1)%N, j] +grid[(i-1)%N, (j-1)%N] + grid[(i-1)%N, (j+1)%N] + grid[(i+1)%N, (j-1)%N] + grid[(i+1)%N, (j+1)%N]
     
     # Apply rules
@@ -66,9 +107,11 @@ def new_value(i, j,grid):
 
 #############################################################################
 #
-# Now we set up the initial shape the model printing out every step
+# Simulating a glider
+# -------------------
 #
-
+# Now we set up the initial shape of the glider.
+#
 
 def initialize(grid):
     init_pattern = ["111",
@@ -80,29 +123,44 @@ def initialize(grid):
     return grid
 
 N=8
-STEPS = 10
 
 grid = np.zeros((N, N), dtype="int")
 grid = initialize(grid)
 
 #############################################################################
 #
-# Now simulate
+# Now let's simulate the glider for 10 steps and output the result.
 #
 
+STEPS = 10
 
 fig,axs=plt.subplots(1,STEPS)
 for step in range(STEPS):
-    grid, old_grid = iterate(grid) # Iterate & swap the two grids
+    grid, old_grid = iterate(grid,new_value) # Iterate & swap the two grids
     show_grid(axs[step],old_grid,0)
 
     
 plt.show()
 
 
+##############################################################################
+# 
+# .. admonition:: Try it yourself!
+#
+#       Change the initial conditions in the simulation above to create the patterns
+#       I show in the book. 
+#   
+#       .. image:: ../../images/lesson4/ShapesLife.png
+#
+#       
+
 
 ##############################################################################
-# Animate the game of life on a larger grid
+# Make a video
+# ------------
+#
+# Animate the game of life on a larger grid. Creates a video file
+# in the directory you run this code (uncomment last two lines)
 
 import matplotlib.animation as animation
 
@@ -130,8 +188,9 @@ if make_animation:
                                 repeat_delay=1000)
 
     # set output file
-    writer = animation.FFMpegWriter(fps=15, metadata=dict(artist='Me'), bitrate=1800)
-    ani.save("Game_of_life_movie.mp4", writer=writer)
+    # UNCOMMENT THIS TO MAKE VIDEO
+#    writer = animation.FFMpegWriter(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+#    ani.save("Game_of_life_movie.mp4", writer=writer)
 
 
 ##############################################################################

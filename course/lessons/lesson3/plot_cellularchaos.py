@@ -4,6 +4,10 @@
 Cellular chaos
 ==============
 
+
+Rules for cellular automata
+---------------------------
+
 In Santa Fe, Esther shows how to write rule tables for cellular automata.
 
 .. image:: ../../images/lesson3/EstherRules.png
@@ -95,6 +99,9 @@ generate_ca(rule, steps,size=size,print_output=1)
 
 
 ##############################################################################
+# Creating fractals
+# -----------------
+#
 # In Santa Fe, David finds the following rules, which make a fractal like pattern.
 # 
 # .. image:: ../../images/lesson3/DavidFractal.png
@@ -108,6 +115,9 @@ steps = 30
 generate_ca(rule, steps,size=size,print_output=1)
 
 ##############################################################################
+# Random number generator
+# -----------------------
+#
 # The random rule which David discovers is illustrated below.
 #
 # .. image:: ../../images/lesson3/DavidRandom.png
@@ -126,8 +136,6 @@ print('\n')
 print('The middle string is: ' + middle_string)
 
 ##############################################################################
-# Random number generators
-# ------------------------
 #
 # The method to generate random numbers from the cellular automata is
 # to first run a size 20 cellular automata for 20 steps....
@@ -143,9 +151,10 @@ print('The middle string is: ' + middle_string)
 
 
 ##############################################################################
-# We can then convert the output number to a decimal.
+# We can then convert the output number to a decimal between 0 and 1.
 
 def string_to_decimal(string):
+    # Converts a binary number to a decimal between 0 and 1.
 
     decimal=np.array(0)
     for i,c in enumerate(list(map(int, [*string]))):
@@ -259,7 +268,7 @@ plt.show()
 
 ##############################################################################
 # 
-# And now lets repeat it 2000 times. 
+# And now let's repeat it 2000 times to look at the distribtuion.
 #
 
 random_decimals=[]
@@ -275,14 +284,65 @@ formatHist(ax,N)
 
 plt.show()
 
-
-
 ##############################################################################
 # 
 # This is a uniform random distribtion of numbers, i.e. all outputs between
 # 0 and 1 are equally likely.
 #
-# Further reading
-# ---------------
+# Wolfram's original paper
+# ------------------------
 #
-# ADD REFENCES HERE.
+# The original formaulation of elementary cellular automata was made by Wofram was
+# made in two articles:
+#
+# `Wolfram, Stephen. "Statistical mechanics of cellular automata." Reviews of modern physics 55, no. 3 (1983): 601. <https://link.aps.org/pdf/10.1103/RevModPhys.55.601?casa_token=R2h1Ilyt3LEAAAAA:W_3g-OUkb8x2Nh0riNLntWOPqQdmUsSOuNnvCS-yP2ExvtVmuTfQNwfZas4ISQ9NMJny_gWz25jl>`_
+# 
+# `Wolfram, Stephen. "Cellular automata as models of complexity." Nature 311, no. 5985 (1984): 419-424 <https://idp.nature.com/authorize/casa?redirect_uri=https://www.nature.com/articles/311419a0.pdf&casa_token=VLEcK7spHHYAAAAA:4mCoCK3pErHdZUL1Ch3C1AdAyTjcOptyVU6kyKYxwfKkaS8bhJa0hF-BjOM77eWflU8nUYMBgh_SbP8>`_
+#
+# Here is how Wolfram presented the rule in binary form:
+#
+# .. image:: ../../images/lesson3/WolframRules.png
+#
+# And here are some of the outputs from the model.
+#
+# .. image:: ../../images/lesson3/WolframOutput.png
+#
+# Wolfram introduced the idea of naming each of the elementary cellular automata as
+# a decimal integer between 0 and 255 corresponding to the binary nuber 
+# given by the rule set. So, for example,
+# the rule for randomness is 00011110 in binary, which as an integer is
+# 2+4+8+16=30. So we call it rule 30.
+#
+# The function below makes that conversion.
+
+def rule_to_integer(rule):
+    # Converts a binary number to a decimal between 0 and 1.
+
+    integer=np.array(0)
+    n = len(rule)
+    for i,c in enumerate(rule):
+        integer=integer + c*np.power(np.array(2, dtype=np.float128),np.array(n-1-i, dtype=np.float128)) 
+
+    return int(integer)
+
+rule = [0, 0, 0, 1, 1, 1, 1, 0] 
+print("As an integer the rule is " + str(rule_to_integer(rule)))
+
+##############################################################################
+# 
+# .. admonition:: Try it yourself!
+#
+#       Another cellular automata which can generate fractals is rule 90.
+#       Write 90 in binary form and then run the cellular automate simulator 
+#       to generate the fractal pattern. 
+#
+#
+# Online simulators
+# -----------------
+#
+# There are several elementary CA simulators available online. For example,
+#
+# `https://devinacker.github.io/celldemo/ <https://devinacker.github.io/celldemo/>`_
+#
+# allows you to enter rules in binary or integer form and generate their outputs. 
+

@@ -84,5 +84,12 @@ generate_ca(rule, steps,size=size,print_output=1)
 ##############################################################################
 # Four classes
 # ------------
+#
+# The observation of four different classes of elementary cellular automata
+# was first made in the article by Wolfram, which I discuss in the introduction to 
+# the book. Here is what `he wrote <https://idp.nature.com/authorize/casa?redirect_uri=https://www.nature.com/articles/311419a0.pdf&casa_token=VLEcK7spHHYAAAAA:4mCoCK3pErHdZUL1Ch3C1AdAyTjcOptyVU6kyKYxwfKkaS8bhJa0hF-BjOM77eWflU8nUYMBgh_SbP8>`_.
+#
+# .. image:: ../../images/lesson4/WolframFour.png
+# 
 
 

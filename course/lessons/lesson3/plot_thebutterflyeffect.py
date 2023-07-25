@@ -155,8 +155,6 @@ ax.spines['right'].set_visible(False)
 
 plt.show()
 
-
-
 ##############################################################################
 # To be clear, this is not a plot of Z itself, but rather a plot of the maximum values it 
 # takes on each loop round the butterfly shape. 
@@ -169,7 +167,7 @@ plt.show()
 #       maxima is not enirely disimilar to the map we saw there. Run the code above for
 #       different intitial conditions and look at how the sequence of maxima changes. 
 #
-# This similarity can be teased out further by plotting consecutive maxima of Z to 
+# The chaos in Lorenz equation can be teased out further by plotting consecutive maxima of Z to 
 # create a map of maxima from one time to the next. So, each time Z reaches a 
 # maximum the size of that value is noted and then consecutive values of Z are 
 # plotted against each other. 
@@ -190,14 +188,15 @@ ax.set_ylim(27,52)
 
 ##############################################################################
 # The same tent-like shape is seen here as we saw :ref:`earlier<doublingmap>`.
-# In Lorenz article, Fetter made similar plots for the height of consecutive peaks. 
+# For Lorenz article, Ellen Fetter made similar plots for the height of consecutive peaks. 
 # This tells us that in the model, when temperature distortions are small, 
 # the temperature distortion typically doubled, while large distortions are 
 # followed by very small distortions. 
 #
 # Lorenz noted the similarity to the tent map and started to sketch out 
 # an argument as to why this meant that any two close-by points will soon move apart. 
-# In doing so, he provided the first argument as to why the weather is chaotic. It wasn't a rigorous
+# In doing so, he provided the first argument as to why the weather is chaotic. 
+# It wasn't a rigorous
 # proof at that stage, but it was the starting point of an explanation.
 
 
@@ -214,7 +213,7 @@ ax.set_ylim(27,52)
 #
 # `Étienne Ghys, The Lorenz attractor, a paradigm for chaos, Chaos (2013): 1‒54, p. 20 <https://link.springer.com/chapter/10.1007/978-3-0348-0697-8_1>`_
 # 
-# A beautiful analysis of Lorenz equations:
+# A beautiful and thorough analysis of Lorenz equations:
 #
 # `Colin Sparrow, The Lorenz Equations: Bifurcations, Chaos, and Strange Attractors, Vol. 41, Springer Science and Business Media, 2012 <https://link.springer.com/book/10.1007/978-1-4612-5767-7>`_
 #
