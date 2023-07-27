@@ -59,8 +59,17 @@ So, I recommend you watch this video to start with.
 Kishimisu goes step-by-step through the tools and the functions used to create striking 
 dynamic visuals. 
 
-The `flowers example <https://www.shadertoy.com/view/dtS3zG>`__ 
-has also been implemented in shadertoy.
+Another good introdcution to ray tracing is
+
+..  youtube:: PGtv-dBi2wE
+   :width: 640
+   :height: 349
+
+Some more advanced tutorials can be found `on Inigo Quilez homepage <https://www.shadertoy.com/user/iq>´_. 
+There is also a shadertoy implementation of the 
+`flowers example <https://www.shadertoy.com/view/dtS3zG>`__ from above.
+
+For TWIGL, instructions for inputs and ouputs can be found on their `github page <https://github.com/doxas/twigl>`__.
 
 
 

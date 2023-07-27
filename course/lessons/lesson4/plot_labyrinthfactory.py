@@ -3,15 +3,14 @@ Labyrinth factory
 =================
 
 This cellular automata was suggested to me by Mikael Hansson, while studying a
-course with me a few years ago. 
+course with me a few years ago. I think its very nice and makes some impressive patterns so 
+I implemented it her in Python.
 
 """
 
-# hide-input tag
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import rcParams
-
 
 def show_grid(ax,grid,make_animation):
         N=np.size(grid,1)
@@ -129,8 +128,8 @@ if not(make_animation):
 
 #############################################################################
 #
-# The code below makes a longer video of the model. 
-#
+# The code below makes a longer video of the model. Change make_animation above to
+# 1 in order to make the video.
 
 
 N = 200
