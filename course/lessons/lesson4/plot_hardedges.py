@@ -4,6 +4,14 @@
 Hard edges of social reality
 ============================
 
+In the book, I describe a story about how people choose which group to stand in
+at a party. Here is an illustration of the moves people make
+
+.. image:: ../../images/lesson4/PartyMoves.png
+
+This section provides the code for the model described in the book.
+
+
 """
 
 
@@ -14,7 +22,6 @@ import numpy as np
 from pylab import rcParams
 rcParams['figure.figsize'] = 7/2.54, 28/2.54
 matplotlib.font_manager.FontProperties(family='Helvetica',size=11)
-
 
 # This function helps us plot on a circle
 def PointsInCircum(r,n=100):
@@ -101,11 +108,6 @@ for t in range(4):
                 group_male_new[g]=group_male_new[g]-1
                 #Group with more males than females
                 new_g=np.random.choice(np.where(group_male > group_female)[0])
-                
-                #Random group
-                #new_g=int(np.floor(np.random.rand(1)*10))
-                #while new_g==g:
-                #    new_g=int(np.floor(np.random.rand(1)*10))
                 group_male_new[new_g]=group_male_new[new_g]+1
                 
             
@@ -115,8 +117,8 @@ for t in range(4):
             
             while group_female_new[g]>0:
                 group_female_new[g]=group_female_new[g]-1
+                #Group with more females than males
                 new_g=np.random.choice(np.where(group_male < group_female)[0])
-
                 group_female_new[new_g]=group_female_new[new_g]+1
                 
                 change=True           

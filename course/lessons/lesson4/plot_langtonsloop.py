@@ -3,7 +3,7 @@ Langton's loop
 ==============
 
 Chris Langton created the "loop" cellular automata to illustrate how
-a cellular automata `can self-reproduce <https://deepblue.lib.umich.edu/bitstream/handle/2027.42/24968/0000395.pdf?sequence=1>`.
+a cellular automata `can self-reproduce <https://deepblue.lib.umich.edu/bitstream/handle/2027.42/24968/0000395.pdf?sequence=1>`_.
 
 Here is a video of Langton's loop.
 
