@@ -13,14 +13,16 @@ using a questionnaire conducted by Whillans et al. (2017). We look in particular
 with varying incomes, but all with a budget of at least $200 to spend.  The study participants typically 
 spent about $250 on (each of) material items and experiences, and about half as much on time-saving.   
 
-All the participants were asked the question:
+All the participants were asked the question::
 
-Please imagine a ladder with steps numbered from zero at the bottom to ten at the top. 
-Suppose we say that the top of the ladder represents the best possible life for you and the bottom of 
-the ladder represents the worst possible life for you. On which step of the ladder would you say you 
-personally feel you stand at this time?
+    Please imagine a ladder with steps numbered from zero at the bottom to ten at the top. 
+    Suppose we say that the top of the ladder represents the best possible life for you 
+    and the bottom of the ladder represents the worst possible life for you. 
+    On which step of the ladder would you say you personally feel you stand at this time?
 
-This is how Whillans and here colleagues measure happiness. 
+This is how see `Whillans et al. <https://www.pnas.org/doi/pdf/10.1073/pnas.1706541114>`_ measure happiness in 
+the study I write about in the book. In this section we dig in to the data of the replies they received in
+one of the studies they conducted as part of their work.
 
 Loading in the data
 -------------------
@@ -69,9 +71,9 @@ print('10 percent of people had a happiness score of %.2f or less.' % np.quantil
 # Spending money on saving time
 # -----------------------------
 #
-# **First question: are people who spend money on saving time happier?**
+# 
+# Let's start by looking at the difference in average happiness. Are people who spend money on saving time happier?
 #
-# Let's start by looking at the difference in average happiness
 
 didspend=df['spent_on_TSA']>0
 didntspend=df['spent_on_TSA']<=0
@@ -90,14 +92,14 @@ cohensd=(mean_did-mean_didnt)/np.sqrt(((n_did-1)*std_did**2+(n_didnt-1)*std_didn
 print('The Cohens D for this difference is %.2f' % cohensd)
 
 ##############################################################################
-# Cohen's D is a statistic for measuring effect size. How big an 
-# effect does spending on time saving have? LINK EXPLAIN
+# `Cohen's D <https://en.wikipedia.org/wiki/Effect_size#Cohen's_d>`_ is a statistic for measuring effect size. How big an 
+# effect does spending on time saving have? An effect of 0.44 is considered to be medium.
 # 
 # The difference between the two groups can’t be attributed to chance, since over one 
 # thousand people were surveyed, but it is not a particularly large difference. 
 # But it is not particularly large. 
 # This point is illustrated below in a histogram for those 
-# who did spend money on time saving (top) and those who did not.
+# who did spend money on time saving (top in the figure below) and those who did not (bottom in the figure below).
 
 def FormatFigure(ax):
     ax.legend(loc='upper left')
@@ -143,10 +145,8 @@ print('The person who did spend on time-saving is happiest %.2f percent of times
 #
 # .. image:: ../../images/lesson1/FriendsExplain.png
 #
-# ** Answer to first question: It makes sense to spend money 
-# on time-saving, but results are by no means guaranteed.**
-
-
+# It thus makes sense to spend money 
+# on time-saving, but results are by no means guaranteed.
 
 
 ##############################################################################
@@ -158,8 +158,6 @@ print('The person who did spend on time-saving is happiest %.2f percent of times
 #
 # To answer this question, we plot average happiness against the
 # amount of money people spent. 
-
-
 
 # The data is coded for different spending levels. 
 # This converts the spending levels in to dollars.
@@ -239,8 +237,8 @@ plt.show()
 # spend on each of the three categories, but what is the best 
 # investment on a limited budget? 
 #
-# Here it is important to notice that time-saving 
-# increases slightly earlier per dollar spent than the 
+# Here it is important to notice that time-saving initially
+# increases faster per dollar spent than the 
 # lines for material purchases or experiences. We can estimate how 
 # more rapid this increase is using linear 
 # regression, which measures the steepness of the increase for each factor.
@@ -349,7 +347,7 @@ print('The average person spend %.2f percent of their budget on experiences' % (
 print('The average person spend %.2f percent of their budget on material purchases' % (100.0*np.mean(df['Prop_MATA']))) 
 
 #################################################################
-# This uggests that most of us could benefit from increasing our 
+# This suggests that most of us could benefit from increasing our 
 # spending on time saving.
 #
 # **Summary:** If you currently spend very little on money on 
@@ -368,17 +366,18 @@ print('The average person spend %.2f percent of their budget on material purchas
 # Causation 
 # --------- 
 # 
-# Fourth question: can we say that time-saving purchases 
+# Can we say that time-saving purchases 
 # cause us to become happier? And, if so, what should I buy!?!?
 #
-# The researchers responsible for this study conducted an experiment. 
+# The researchers conducted an experiment to answer this question. 
 # They recruited people at a science fair, giving them $40 one week to 
 # make a time-saving purchase and $40 another week (either before or after) 
 # to make a material purchase. Below is a plot of what they bought on each 
 # occasion (material left, time-saving right) and the difference in 
 # happiness they reported each time.
 #
-# NEED TO LINK AND EXPLAIN FROM ORIGINAL STUDY.
+# For more details of the study see `Whillans et al. <https://www.pnas.org/doi/pdf/10.1073/pnas.1706541114>`_. The data from the study
+# can be accessed `here <https://osf.io/vr9pa/>`_.
 
 
 rcParams['figure.figsize'] = 16/2.54, 35/2.54
@@ -386,7 +385,7 @@ fig,ax=plt.subplots(num=1)
 
 
 
-# The data file we use here is a adapted from the data from here https://osf.io/vr9pa/
+# The data file we use here is a adapted from the data from `here <https://osf.io/vr9pa/>`_
 # Study 8 Field Study data.
 df=pd.read_csv("../data/happy_buy.csv",sep=';')
 
