@@ -132,7 +132,7 @@ Similarly, we can write the rate of change of foxes as
 .. math::
    :label: foxes
  
-   \\frac{dF}{dt} =  \\underbrace{c R F}_{\mbox{F} + \mbox{R} \\xrightarrow{c} 2 \mbox{F}} - \\underbrace{d R}_{\mbox{R} \\xrightarrow{d} 2 \mbox{R}}
+   \\frac{dF}{dt} =  \\underbrace{c R F}_{\mbox{F} + \mbox{R} \\xrightarrow{c} 2 \mbox{F}} - \\underbrace{d F}_{\mbox{F} \\xrightarrow{d} \mbox{D}}
 
 Notice that we have a different rate parameter for the death of rabbits (:math:`b`) 
 than for the birth of foxes (:math:`c`). This is because
